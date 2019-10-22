@@ -65,6 +65,14 @@ func loginMain(dr selenium.WebDriver) {
 	loginButton.Click()
 }
 
+// TEMP FUNCTION NOT DONE YET
+func getUpcommingClasses(dr selenium.WebDriver) {
+	loadPage(normalWait, dr, "https://my.informatics.ru/pupil/root")
+	upcommingClasses, err := dr.FindElements(selenium.ByCSSSelector, ".clearfix .clickable .nowrap")
+	_checkBasic(err)
+	fmt.Println(upcommingClasses)
+}
+
 func main() {
 	err := godotenv.Load()
 	_checkBasic(err)
@@ -74,6 +82,7 @@ func main() {
 	defer dr.Quit()
 
 	loginMain(dr)
+	getUpcommingClasses(dr)
 
 	time.Sleep(time.Second * 100)
 

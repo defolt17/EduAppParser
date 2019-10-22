@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"time"
@@ -9,29 +10,71 @@ import (
 	"github.com/tebeka/selenium"
 )
 
-func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
+var (
+	// If something goes wrong "retry" function will
+	// try to repeat action for this amount of times
+	attempts = 5
+	// Time to wait till page loads all the elemets
+	// bound by scripts -- Course page with tasks
+	longWait   = time.Millisecond * 5100
+	normalWait = time.Millisecond * 4000
+	loginWait  = time.Millisecond * 1400
+)
+
+// Need to use it somehow
+func try(f func() error) (err error) {
+	for i := 0; ; i++ {
+		err = f()
+		if err == nil {
+			return
+		}
+		if i >= (attempts - 1) {
+			break
+		}
+		time.Sleep(time.Millisecond * 100)
 	}
-	caps := selenium.Capabilities{"browserName": "firefox"}
-	wd, _ := selenium.NewRemote(caps, "")
-	defer wd.Quit()
+	return fmt.Errorf("after %d attempts, last error: %s", attempts, err)
+}
 
-	wd.Get("https://my.informatics.ru/accounts/root_login/#/")
+func _checkBasic(err error) {
+	if err != nil {
+		log.Panic(err)
+	}
+}
 
-	time.Sleep(time.Millisecond * 1500)
+func loadPage(dt time.Duration, dr selenium.WebDriver, link string) {
+	dr.Get(link)
+	time.Sleep(dt)
+}
 
-	user, _ := wd.FindElement(selenium.ByID, "username")
+func loginMain(dr selenium.WebDriver) {
+	loadPage(loginWait, dr, "https://my.informatics.ru/accounts/root_login/#/")
+
+	user, err := dr.FindElement(selenium.ByID, "username")
+	_checkBasic(err)
 	user.Clear()
 	user.SendKeys(os.Getenv("USERNAME"))
 
-	pass, _ := wd.FindElement(selenium.ByID, "password")
+	pass, err := dr.FindElement(selenium.ByID, "password")
+	_checkBasic(err)
 	pass.Clear()
 	pass.SendKeys(os.Getenv("USERPASSWORD"))
 
-	loginButton, _ := wd.FindElement(selenium.ByXPATH, "//*[contains(text(), 'Войти')]")
+	loginButton, err := dr.FindElement(selenium.ByXPATH, "//*[contains(text(), 'Войти')]")
+	_checkBasic(err)
 	loginButton.Click()
-	time.Sleep(time.Second * 10)
+}
+
+func main() {
+	err := godotenv.Load()
+	_checkBasic(err)
+
+	cb := selenium.Capabilities{"browserName": "firefox"}
+	dr, err := selenium.NewRemote(cb, "")
+	defer dr.Quit()
+
+	loginMain(dr)
+
+	time.Sleep(time.Second * 100)
 
 }

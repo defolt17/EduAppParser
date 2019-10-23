@@ -16,11 +16,13 @@ var (
 	attempts = 5
 	// Time to wait till page loads all the elemets
 	// bound by scripts -- Course page with tasks
-	longWait   = time.Millisecond * 5100
+	longWait   = time.Millisecond * 5000
 	normalWait = time.Millisecond * 4000
 	loginWait  = time.Millisecond * 1400
+	shortWait  = time.Millisecond * 300
 )
 
+// Class is a class
 type Class struct {
 	name, date, weekday, auditory string
 }
@@ -41,26 +43,25 @@ func loginMain(dr selenium.WebDriver) {
 
 	user, err := dr.FindElement(selenium.ByID, "username")
 	_checkBasic(err)
-	user.Clear()
 	user.SendKeys(os.Getenv("USERNAME"))
 
 	pass, err := dr.FindElement(selenium.ByID, "password")
 	_checkBasic(err)
-	pass.Clear()
 	pass.SendKeys(os.Getenv("USERPASSWORD"))
 
 	loginButton, err := dr.FindElement(selenium.ByXPATH, "//*[contains(text(), 'Войти')]")
 	_checkBasic(err)
 	loginButton.Click()
 
-	time.Sleep(time.Millisecond * 1000)
+	time.Sleep(time.Millisecond * 300)
+	log.Printf("Logged in as" + os.Getenv("USERNAME"))
 }
 
 // Kinda works now
 // Get list of upcoming classes (name, date, time, cabinet)
 func getUpcommingClasses(dr selenium.WebDriver) {
-	loadPage(normalWait, dr, "https://my.informatics.ru/pupil/root")
-	upcommingClasses, err := dr.FindElements(selenium.ByXPATH, "//div[@class='clearfix clickable nowrap']")
+	loadPage(shortWait, dr, "https://my.informatics.ru/pupil/root")
+	upcommingClasses, err := dr.FindElements(selenium.ByXPATH, "/html/body/div[1]/div/div[4]/div[2]/div/div[2]/div[1]/div/div[2]/div[@class='clearfix clickable nowrap']")
 	_checkBasic(err)
 	upcommingClassesList := make([]Class, len(upcommingClasses))
 
@@ -93,7 +94,5 @@ func main() {
 
 	loginMain(dr)
 	getUpcommingClasses(dr)
-
-	time.Sleep(time.Second * 100)
 
 }

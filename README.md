@@ -1,4 +1,10 @@
 # EduAppParser
+<h6>
+    Works as supposed (Oct-23)
+    </br>
+    Note that you have to create ".env" file with your "USERNAME" and "USERPASSWORD". I will probalby add env variables.
+</h6>
+
 
 # #TODO
 Make parser so that it is possible to extract all information from system.
@@ -9,5 +15,7 @@ Write everything on Go.
 </br>
 Add custom loading timing to settings/cmd arguments.
 </br>
-Overall progress: 2.0%
+Add succsessfull login verification
+</br>
+Overall progress: 3.0%
 </br>

@@ -11,25 +11,34 @@ import (
 )
 
 const (
-	// If something goes wrong "retry" function will
-	// try to repeat action for this amount of times
-	attempts = 3
 	// Time to wait till page loads all the elemets
-	// bound by scripts -- Course page with tasks
-	longWait   = time.Millisecond * 5000
-	normalWait = time.Millisecond * 4000
-	loginWait  = time.Millisecond * 1100
-	shortWait  = time.Millisecond * 100
+	// bound by scripts, ex. Course page with tasks
+	loginWait       = time.Millisecond * 1100
+	mainWait        = time.Millisecond * 200
+	coursesListWait = time.Millisecond * 500
 )
 
 var (
-	urlPrefix    = "https://my.informatics.ru"
 	currentLink  = ""
+	urlPrefix    = "https://my.informatics.ru"
 	loginLink    = "/accounts/root_login/"
 	mainPageLink = "/pupil/root/"
+	coursesLink  = "/pupil/courses/"
 )
 
-// Class is a class
+// Course is a course class
+type Course struct {
+	name                              string
+	gradeCount                        uint32
+	avgGrade                          float32
+	visitedClasses, numClassesOverall uint16
+	mainTeacher                       string // This is temporary
+	stoopidImageLink                  string // I will add pupil/teaher class
+	year                              string
+	link                              string
+}
+
+// Class is a class class
 type Class struct {
 	name, date, weekday, auditory string
 }
@@ -40,20 +49,21 @@ func _checkBasic(err error) {
 	}
 }
 
-// New feature: if you are alredy on the destination link
-// you won't load it twice!
 func loadPage(dt time.Duration, dr selenium.WebDriver, destLink string) {
 	if currentLink != destLink {
 		dr.Get(urlPrefix + destLink)
-		log.Println("Loading: " + destLink)
 		time.Sleep(dt)
+		log.Println("Loaded: " + destLink)
+		return
 	}
+	log.Println("Staying on: " + currentLink)
 }
 
 func refreshPage(dr selenium.WebDriver) {
 	dr.Get(urlPrefix + currentLink)
 }
 
+// ### Add succsessfull login verification
 func loginMain(dr selenium.WebDriver) {
 	err := godotenv.Load()
 	_checkBasic(err)
@@ -73,14 +83,14 @@ func loginMain(dr selenium.WebDriver) {
 	loginButton.Click()
 
 	currentLink = "/pupil/root/"
-	time.Sleep(time.Millisecond * 300)
+	time.Sleep(time.Millisecond * 700)
 	log.Printf("Logged in as: " + os.Getenv("USERNAME"))
 
 }
 
-func getUpcommingClasses(dr selenium.WebDriver) {
+func getUpcommingClasses(dr selenium.WebDriver) []Class {
 
-	loadPage(shortWait, dr, "/pupil/root/")
+	loadPage(mainWait, dr, "/pupil/root/")
 
 	upcommingClasses, err := dr.FindElements(selenium.ByXPATH, "/html/body/div[1]/div/div[4]/div[2]/div/div[2]/div[1]/div/div[2]/div[@class='clearfix clickable nowrap']")
 	_checkBasic(err)
@@ -103,6 +113,41 @@ func getUpcommingClasses(dr selenium.WebDriver) {
 		fmt.Println(elem.name + " " + elem.date + ", " +
 			elem.weekday + " " + elem.auditory)
 	}
+	return upcommingClassesList
+}
+
+func getCourses(dr selenium.WebDriver) {
+
+	loadPage(coursesListWait, dr, coursesLink)
+
+	extractedYears, _ := dr.FindElements(selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[2]/ul//a[@href='javascript:void(0)']")
+	yearsNum := len(extractedYears)
+
+	yearsIndex := make([]string, yearsNum)
+	years := make([]string, yearsNum)
+	var Courses []Course
+
+	for i, elem := range extractedYears {
+		yearsIndex[i], _ = elem.GetAttribute("data-value")
+		years[i], _ = elem.Text()
+	}
+
+	for _, yearIndex := range yearsIndex {
+		loadPage(coursesListWait, dr, coursesLink+"?year_selection="+yearIndex)
+		pageCourses, _ := dr.FindElements(selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[contains(@class, 'panel panel-default')]")
+		fmt.Println(len(pageCourses))
+		for _, pageCourse := range pageCourses {
+			nameExtracted, _ := pageCourse.FindElement(selenium.ByXPATH, ".//a[contains(@href, '/pupil/courses/')]")
+			var tempCourse Course
+			tempCourse.name, _ = nameExtracted.Text()
+			Courses = append(Courses, tempCourse)
+		}
+	}
+	for _, course := range Courses {
+		fmt.Println(course.name)
+		// Done for today
+	}
+
 }
 
 func main() {
@@ -113,6 +158,6 @@ func main() {
 	defer dr.Quit()
 
 	loginMain(dr)
-	getUpcommingClasses(dr)
+	getCourses(dr)
 
 }

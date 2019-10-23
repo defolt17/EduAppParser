@@ -63,14 +63,32 @@ func loginMain(dr selenium.WebDriver) {
 	loginButton, err := dr.FindElement(selenium.ByXPATH, "//*[contains(text(), 'Войти')]")
 	_checkBasic(err)
 	loginButton.Click()
+
+	time.Sleep(time.Millisecond * 1000)
 }
 
 // TEMP FUNCTION NOT DONE YET
+// Get list of upcoming classes (name, date, time, cabinet)
 func getUpcommingClasses(dr selenium.WebDriver) {
 	loadPage(normalWait, dr, "https://my.informatics.ru/pupil/root")
-	upcommingClasses, err := dr.FindElements(selenium.ByCSSSelector, ".clearfix .clickable .nowrap")
+	upcommingClasses, err := dr.FindElements(selenium.ByXPATH, "//div[@class='clearfix clickable nowrap']")
 	_checkBasic(err)
-	fmt.Println(upcommingClasses)
+	upcommingClassesList := make([]string, len(upcommingClasses))
+
+	for i, elem := range upcommingClasses {
+		date, _ := elem.FindElement(selenium.ByXPATH, "//div[@class='top-line']")
+		weekday, _ := elem.FindElement(selenium.ByXPATH, "//span[@class='small text-muted']")
+		auditory, _ := elem.FindElement(selenium.ByXPATH, "//span[@class='small']")
+		courseName, _ := elem.FindElement(selenium.ByXPATH, "//div[@class='col-xs-12 col-sm-6 col-xs-no-padding']")
+
+		dateText, _ := date.Text()
+		weekdayText, _ := weekday.Text()
+		auditoryText, _ := auditory.Text()
+		courseNameText, _ := courseName.Text()
+
+		upcommingClassesList[i] = courseNameText + dateText + weekdayText + auditoryText
+	}
+	fmt.Println(upcommingClassesList)
 }
 
 func main() {

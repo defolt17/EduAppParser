@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -15,7 +16,7 @@ const (
 	// bound by scripts, ex. Course page with tasks
 	loginWait       = time.Millisecond * 1100
 	mainWait        = time.Millisecond * 200
-	coursesListWait = time.Millisecond * 500
+	coursesListWait = time.Millisecond * 300
 )
 
 var (
@@ -29,12 +30,11 @@ var (
 // Course is a course class
 type Course struct {
 	name                              string
-	gradeCount                        uint32
-	avgGrade                          float32
-	visitedClasses, numClassesOverall uint16
+	gradeCount                        string
+	avgGrade                          string
+	visitedClasses, numClassesOverall string
 	mainTeacher                       string // This is temporary
-	stoopidImageLink                  string // I will add pupil/teaher class
-	year                              string
+	year                              string // I will add pupil/teaher class
 	link                              string
 }
 
@@ -130,21 +130,60 @@ func getCourses(dr selenium.WebDriver) {
 	for i, elem := range extractedYears {
 		yearsIndex[i], _ = elem.GetAttribute("data-value")
 		years[i], _ = elem.Text()
+		years[i] = strings.Replace(years[i], "/", ":", 1)
 	}
 
-	for _, yearIndex := range yearsIndex {
+	for i, yearIndex := range yearsIndex {
 		loadPage(coursesListWait, dr, coursesLink+"?year_selection="+yearIndex)
 		pageCourses, _ := dr.FindElements(selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[contains(@class, 'panel panel-default')]")
 		fmt.Println(len(pageCourses))
 		for _, pageCourse := range pageCourses {
-			nameExtracted, _ := pageCourse.FindElement(selenium.ByXPATH, ".//a[contains(@href, '/pupil/courses/')]")
+			nameExtracted, err := pageCourse.FindElement(selenium.ByXPATH, ".//a[contains(@href, '/pupil/courses/')]")
+			gradeCountExtracted, err := pageCourse.FindElement(selenium.ByXPATH, ".//*[contains(@class, 'shp-total-marks') or contains(@class, 'text-muted more-info')]")
+			avgGradeExtracted, err := pageCourse.FindElement(selenium.ByXPATH, ".//span[contains(@class, ' shp-average')]")
+			classesVisits, err := pageCourse.FindElement(selenium.ByXPATH, ".//div[@class='col-lg-4 col-xs-no-padding']")
+
+			mainTeacher, err := pageCourse.FindElement(selenium.ByXPATH, ".//div[@class='media-body lead small']")
+			var mainTeacherText string
+			if err != nil {
+				mainTeacherText = ""
+			} else {
+				mainTeacherText, _ = mainTeacher.Text()
+				mainTeacherText = strings.Replace(mainTeacherText, "Основной преподаватель:", "", 1)
+				mainTeacherText = strings.Replace(mainTeacherText, "\n", "", 1)
+			}
+
+			classesVisitsText, err := classesVisits.Text()
+			var classesVisitsTextList [2]string
+			if classesVisitsText != "-" {
+				tempClassesList := strings.Split(classesVisitsText, "из")
+				classesVisitsTextList[0] = strings.Replace(tempClassesList[0], " ", "", 1)
+				classesVisitsTextList[1] = strings.Replace(tempClassesList[1], " ", "", 1)
+			} else {
+				classesVisitsTextList[0] = ""
+				classesVisitsTextList[1] = ""
+			}
+
+			linkText, err := nameExtracted.GetAttribute("href")
+
 			var tempCourse Course
-			tempCourse.name, _ = nameExtracted.Text()
+			tempCourse.name, err = nameExtracted.Text()
+			tempCourse.gradeCount, err = gradeCountExtracted.Text()
+			tempCourse.avgGrade, err = avgGradeExtracted.Text()
+			tempCourse.visitedClasses = classesVisitsTextList[0]
+			tempCourse.numClassesOverall = classesVisitsTextList[1]
+			tempCourse.mainTeacher = mainTeacherText
+
+			tempCourse.year = years[i]
+			tempCourse.link = linkText
+
 			Courses = append(Courses, tempCourse)
 		}
 	}
 	for _, course := range Courses {
-		fmt.Println(course.name)
+		fmt.Println(course.name, course.gradeCount, course.avgGrade,
+			course.visitedClasses, course.numClassesOverall,
+			course.mainTeacher, course.year, course.link)
 	}
 
 }

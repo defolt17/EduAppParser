@@ -14,9 +14,11 @@ import (
 const (
 	// Time to wait till page loads all the elemets
 	// bound by scripts, ex. Course page with tasks
-	loginWait       = time.Millisecond * 1100
-	mainWait        = time.Millisecond * 200
-	coursesListWait = time.Millisecond * 300
+	loginWait       = time.Millisecond * 1000
+	mainWait        = time.Millisecond * 3
+	coursesListWait = time.Millisecond * 5
+	profileWait     = time.Millisecond * 2
+	courseWait      = time.Millisecond * 1
 )
 
 var (
@@ -25,7 +27,16 @@ var (
 	loginLink    = "/accounts/root_login/"
 	mainPageLink = "/pupil/root/"
 	coursesLink  = "/pupil/courses/"
+	profileLink  = "/accounts/"
 )
+
+// Student is a students class
+type Student struct {
+	name    string
+	mail    string
+	phone   string
+	courses []Course
+}
 
 // Course is a course class
 type Course struct {
@@ -36,6 +47,7 @@ type Course struct {
 	mainTeacher                       string // This is temporary
 	year                              string // I will add pupil/teaher class
 	link                              string
+	classes                           []Class
 }
 
 // Class is a class class
@@ -116,7 +128,7 @@ func getUpcommingClasses(dr selenium.WebDriver) []Class {
 	return upcommingClassesList
 }
 
-func getCourses(dr selenium.WebDriver) {
+func getCourses(dr selenium.WebDriver) []Course {
 
 	loadPage(coursesListWait, dr, coursesLink)
 
@@ -136,7 +148,6 @@ func getCourses(dr selenium.WebDriver) {
 	for i, yearIndex := range yearsIndex {
 		loadPage(coursesListWait, dr, coursesLink+"?year_selection="+yearIndex)
 		pageCourses, _ := dr.FindElements(selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[contains(@class, 'panel panel-default')]")
-		fmt.Println(len(pageCourses))
 		for _, pageCourse := range pageCourses {
 			nameExtracted, err := pageCourse.FindElement(selenium.ByXPATH, ".//a[contains(@href, '/pupil/courses/')]")
 			gradeCountExtracted, err := pageCourse.FindElement(selenium.ByXPATH, ".//*[contains(@class, 'shp-total-marks') or contains(@class, 'text-muted more-info')]")
@@ -180,12 +191,29 @@ func getCourses(dr selenium.WebDriver) {
 			Courses = append(Courses, tempCourse)
 		}
 	}
+
 	for _, course := range Courses {
-		fmt.Println(course.name, course.gradeCount, course.avgGrade,
-			course.visitedClasses, course.numClassesOverall,
-			course.mainTeacher, course.year, course.link)
+		loadPage(courseWait, dr, course.link)
+		lessonsListExtracted, _ := dr.FindElements(selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[4]/table/tbody/tr")
+
+		fmt.Println(len(lessonsListExtracted))
+		//Done for today
 	}
 
+	return Courses
+
+}
+
+func getStudent(dr selenium.WebDriver) Student {
+	var student Student
+	loadPage(profileWait, dr, profileLink)
+
+	nameExtracted, _ := dr.FindElement(selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[1]/div/div[2]/div[1]/div/div[2]/div/div[1][@class='lead']")
+	student.name, _ = nameExtracted.Text()
+
+	student.courses = getCourses(dr)
+
+	return student
 }
 
 func main() {
@@ -196,6 +224,7 @@ func main() {
 	defer dr.Quit()
 
 	loginMain(dr)
-	getCourses(dr)
+	me := getStudent(dr)
+	fmt.Println(me)
 
 }

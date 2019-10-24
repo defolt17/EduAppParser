@@ -145,7 +145,6 @@ func getCourses(dr selenium.WebDriver) {
 	}
 	for _, course := range Courses {
 		fmt.Println(course.name)
-		// Done for today
 	}
 
 }

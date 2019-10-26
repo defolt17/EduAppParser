@@ -1,0 +1,2887 @@
+{
+  "Name": "Десятченко Илья",
+  "Mail": "",
+  "Phone": "",
+  "Courses": [
+    {
+      "Name": "Olymp_CTF_exam",
+      "GradeCount": "пока нет",
+      "AvgGrade": "0.0",
+      "VisitedClasses": "",
+      "NumClassesOverall": "",
+      "MainTeacher": "",
+      "Year": "2019:20",
+      "Link": "/pupil/courses/188/",
+      "Lessons": [
+        {
+          "Theme": "",
+          "Date": "31 октября",
+          "Weekday": "Четверг",
+          "Link": "/pupil/calendar/320863/",
+          "Part": "1 часть"
+        }
+      ],
+      "LessonsCount": "1"
+    },
+    {
+      "Name": "Robot_begin_exam",
+      "GradeCount": "пока нет",
+      "AvgGrade": "0.0",
+      "VisitedClasses": "",
+      "NumClassesOverall": "",
+      "MainTeacher": "",
+      "Year": "2019:20",
+      "Link": "/pupil/courses/186/",
+      "Lessons": null,
+      "LessonsCount": "0"
+    },
+    {
+      "Name": "Отбор на олимпиадное программирование",
+      "GradeCount": "пока нет",
+      "AvgGrade": "0.0",
+      "VisitedClasses": "",
+      "NumClassesOverall": "",
+      "MainTeacher": "",
+      "Year": "2019:20",
+      "Link": "/pupil/courses/187/",
+      "Lessons": [
+        {
+          "Theme": "",
+          "Date": "30 октября",
+          "Weekday": "Среда",
+          "Link": "/pupil/calendar/320868/",
+          "Part": "1 часть"
+        }
+      ],
+      "LessonsCount": "1"
+    },
+    {
+      "Name": "GO",
+      "GradeCount": "3",
+      "AvgGrade": "4.56",
+      "VisitedClasses": "3",
+      "NumClassesOverall": "3",
+      "MainTeacher": "Новиков Иван Андреевич",
+      "Year": "2019:20",
+      "Link": "/pupil/courses/115/",
+      "Lessons": [
+        {
+          "Theme": "Введение\nТипы данных в Go. Условный оператор",
+          "Date": "6 октября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309336/units/303190/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Типы данных в Go. Условный оператор",
+          "Date": "13 октября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309337/units/306583/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Указатели. Флаги командной строки",
+          "Date": "20 октября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309338/units/310237/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "27 октября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309339/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "3 ноября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309340/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "10 ноября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309341/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "17 ноября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309342/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "24 ноября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309343/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "1 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309344/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "8 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309345/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "15 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309346/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "22 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309347/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "29 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309348/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "12 января",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309349/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "19 января",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309350/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "26 января",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309351/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "2 февраля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309352/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "9 февраля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309353/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "16 февраля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309354/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "1 марта",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309355/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "15 марта",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309356/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "22 марта",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309357/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "29 марта",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309358/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "5 апреля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309359/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "12 апреля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309360/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "19 апреля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309361/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "26 апреля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309362/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "17 мая",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309363/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "24 мая",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309364/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "31 мая",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/309365/",
+          "Part": "2 часть"
+        }
+      ],
+      "LessonsCount": "30"
+    },
+    {
+      "Name": "Основы криптографии",
+      "GradeCount": "пока нет",
+      "AvgGrade": "0.0",
+      "VisitedClasses": "5",
+      "NumClassesOverall": "5",
+      "MainTeacher": "Чуйко Роман Андреевич",
+      "Year": "2019:20",
+      "Link": "/pupil/courses/63/",
+      "Lessons": [
+        {
+          "Theme": "Введение в криптографию",
+          "Date": "22 сентября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312308/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Введение в криптографию\nАлгоритмы кодирования\nАлгоритмы помехоустойчивого кодирования",
+          "Date": "29 сентября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312309/units/299749/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Алгоритмы кодирования\nАлгоритмы помехоустойчивого кодирования",
+          "Date": "6 октября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312310/units/303045/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Алгоритмы помехоустойчивого кодирования\nСимметричное шифрование",
+          "Date": "13 октября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312311/units/306488/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Симметричное шифрование - взлом реализации табличной перестановки",
+          "Date": "20 октября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312312/units/308729/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "27 октября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312313/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "3 ноября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312314/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "10 ноября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312315/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "17 ноября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312316/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "24 ноября",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312317/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "1 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312318/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "8 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312319/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "15 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312320/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "22 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312321/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "29 декабря",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312322/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "12 января",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312323/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "19 января",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312324/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "26 января",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312325/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "2 февраля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312326/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "9 февраля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312327/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "16 февраля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312328/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "1 марта",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312329/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "15 марта",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312330/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "22 марта",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312331/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "29 марта",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312332/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "5 апреля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312333/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "12 апреля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312334/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "19 апреля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312335/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "26 апреля",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312336/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "17 мая",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312337/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "24 мая",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312338/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "31 мая",
+          "Weekday": "Воскресенье",
+          "Link": "/pupil/calendar/312339/",
+          "Part": "2 часть"
+        }
+      ],
+      "LessonsCount": "32"
+    },
+    {
+      "Name": "Программирование на Java",
+      "GradeCount": "пока нет",
+      "AvgGrade": "0.0",
+      "VisitedClasses": "5",
+      "NumClassesOverall": "6",
+      "MainTeacher": "Обухов Семен Павлович",
+      "Year": "2019:20",
+      "Link": "/pupil/courses/23/",
+      "Lessons": [
+        {
+          "Theme": "Особенности языка. Сферы использования",
+          "Date": "21 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309238/units/296522/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Знакомство со средами Idea Intelej, Eclipse\nТипы данных. Введение\nТипы данных. Сравнение с другими языками программирования\nРешение задач на типы данных. Введение в переменные",
+          "Date": "28 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309239/units/301327/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Объявление переменных",
+          "Date": "5 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309240/units/302282/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Изменение значения переменных",
+          "Date": "12 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309241/units/305967/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Цикл for\nСтроки",
+          "Date": "19 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309242/units/309539/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "26 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309243/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "2 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309244/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "9 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309245/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "23 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309246/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "30 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309247/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "7 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309248/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "14 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309249/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "21 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309250/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "28 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309251/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "11 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309252/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "18 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309253/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "25 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309254/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "1 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309255/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "8 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309256/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "15 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309257/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "29 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309258/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "7 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309259/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "14 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309260/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "21 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309261/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "28 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309262/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "4 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309263/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "11 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309264/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "18 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309265/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "25 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309266/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "16 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309267/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "23 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309268/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "30 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/309269/",
+          "Part": "2 часть"
+        }
+      ],
+      "LessonsCount": "32"
+    },
+    {
+      "Name": "Пром. Web-разработка",
+      "GradeCount": "пока нет",
+      "AvgGrade": "0.0",
+      "VisitedClasses": "6",
+      "NumClassesOverall": "6",
+      "MainTeacher": "Сапожков Евгений Дмитриевич",
+      "Year": "2019:20",
+      "Link": "/pupil/courses/118/",
+      "Lessons": [
+        {
+          "Theme": "Введение в JavaScript\nУправляющие конструкции",
+          "Date": "21 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310664/units/296856/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Интеграция кода JavaScript в HTML-код. Формы\nСобытия браузера",
+          "Date": "28 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310665/units/299214/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Взаимодействие с DOM",
+          "Date": "5 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310666/units/302444/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Создание и удаление элементов. Введение в объекты",
+          "Date": "12 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310667/units/305998/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Vue.js. Введение. Директивы v-model и v-bind",
+          "Date": "19 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310668/units/309376/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Vue.js. Директивы v-if и v-for",
+          "Date": "26 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310669/units/312920/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Понятие адаптивности. Mедиа-запросы",
+          "Date": "2 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310670/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Контрольная работа по первому модулю",
+          "Date": "9 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310671/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "23 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310672/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "30 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310673/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "7 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310674/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "14 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310675/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "21 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310676/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "28 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310677/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "11 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310678/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "18 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310679/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "25 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310680/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "1 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310681/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "8 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310682/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "15 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310683/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "29 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310684/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "7 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310685/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "14 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310686/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "21 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310687/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "28 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310688/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "4 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310689/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "11 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310690/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "18 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310691/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "25 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310692/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "16 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310693/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "23 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310694/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "30 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310695/",
+          "Part": "2 часть"
+        }
+      ],
+      "LessonsCount": "32"
+    },
+    {
+      "Name": "Пром. программирование",
+      "GradeCount": "6",
+      "AvgGrade": "4.67",
+      "VisitedClasses": "7",
+      "NumClassesOverall": "7",
+      "MainTeacher": "Сапожков Евгений Дмитриевич",
+      "Year": "2019:20",
+      "Link": "/pupil/courses/64/",
+      "Lessons": [
+        {
+          "Theme": "Введение. Базовые элементы синтаксиса",
+          "Date": "14 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310259/units/293231/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Списки. Строки. Функции. Модули",
+          "Date": "21 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310260/units/296527/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Классы - введение. Исключения\nКлассы - наследование. Файлы, virtualenv",
+          "Date": "28 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310261/units/299052/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Знакомство с git. Понятие коммита",
+          "Date": "5 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310262/units/302240/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Знакомство с git. Понятие коммита\nGit. Основы ветвления",
+          "Date": "12 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310263/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Знакомство с git. Понятие коммита\nGit. Основы ветвления\nОбъединение веток. Разрешение конфликтов. Интеграция git и IDE",
+          "Date": "19 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310264/units/309230/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Объединение веток. Разрешение конфликтов. Интеграция git и IDE\nРабота с remote-хранилищами",
+          "Date": "26 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310265/units/312635/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "2 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310266/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "9 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310267/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "23 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310268/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "30 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310269/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "7 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310270/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "14 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310271/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "21 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310272/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "28 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310273/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "11 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310274/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "18 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310275/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "25 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310276/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "1 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310277/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "8 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310278/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "15 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310279/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "29 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310280/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "7 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310281/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "14 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310282/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "21 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310283/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "28 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310284/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "4 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310285/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "11 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310286/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "18 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310287/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "25 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310288/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "16 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310289/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "23 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310290/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "",
+          "Date": "30 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/310291/",
+          "Part": "2 часть"
+        }
+      ],
+      "LessonsCount": "33"
+    },
+    {
+      "Name": "Алгоритмы",
+      "GradeCount": "9",
+      "AvgGrade": "3.35",
+      "VisitedClasses": "18",
+      "NumClassesOverall": "19",
+      "MainTeacher": "Обухов Семен Павлович",
+      "Year": "2018:19",
+      "Link": "/pupil/courses/97/",
+      "Lessons": [
+        {
+          "Theme": "Квадратичные сортировки: сортировка пузырьком, сортировка выбором",
+          "Date": "8 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215835/units/195610/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Квадратичные сортировки: сортировка вставками. Оценка сложностей алгоритмов",
+          "Date": "15 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215836/units/200051/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Сортировка подсчетом",
+          "Date": "22 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215837/units/204762/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Быстрая сортировка. k-я порядковая статистика (*)",
+          "Date": "29 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215838/units/208602/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Самостоятельная по сортировкам. Бинарный поиск: левый и правый",
+          "Date": "6 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215839/units/210817/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Вещественный бинарный поиск. Бинарный поиск по ответу",
+          "Date": "13 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215840/units/215115/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Элементарные структуры данных: стек, очередь, дек. Зацикленная очередь",
+          "Date": "20 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215841/units/215136/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Структура данных Heap",
+          "Date": "27 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215842/units/220306/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Продвинутые задачи на Heap: запоминание позиций элементов в Heap",
+          "Date": "10 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215843/units/220310/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Принцип динамического программирования: база, параметры, переход",
+          "Date": "17 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215844/units/226527/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Динамическое программирование с двумя параметрами. Задача о черепашке",
+          "Date": "24 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215845/units/228197/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Задача о наибольшей возрастающей подпоследовательности. Задача о наибольшей общей подпоследовательности",
+          "Date": "1 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215846/units/231238/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Задачи о рюкзаке в различных постановках",
+          "Date": "8 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215847/units/233718/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Основные понятия теории графов. Ввод/вывод, методы хранения",
+          "Date": "15 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215848/units/236023/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Обход в глубину",
+          "Date": "22 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215849/units/238169/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Топологическая сортировка",
+          "Date": "29 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215850/units/239422/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Обход в ширину",
+          "Date": "12 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215851/units/240906/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Алгоритм Дейкстры",
+          "Date": "19 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215852/units/243056/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Заключительное занятие. Разбор задач и объявление оценок. Оптимизация алгоритма Дейкстры с использованием Heap (*)",
+          "Date": "26 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215853/units/244992/",
+          "Part": "1 часть"
+        }
+      ],
+      "LessonsCount": "19"
+    },
+    {
+      "Name": "Командная олимпиада",
+      "GradeCount": "пока нет",
+      "AvgGrade": "0.0",
+      "VisitedClasses": "",
+      "NumClassesOverall": "",
+      "MainTeacher": "",
+      "Year": "2018:19",
+      "Link": "/pupil/courses/135/",
+      "Lessons": null,
+      "LessonsCount": "0"
+    },
+    {
+      "Name": "Python: обработка данных",
+      "GradeCount": "1",
+      "AvgGrade": "3.67",
+      "VisitedClasses": "13",
+      "NumClassesOverall": "14",
+      "MainTeacher": "Обухов Семен Павлович",
+      "Year": "2018:19",
+      "Link": "/pupil/courses/129/",
+      "Lessons": [
+        {
+          "Theme": "Введение в Python",
+          "Date": "15 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227344/units/199888/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Списки и строки",
+          "Date": "22 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227345/units/204656/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Множества и словари",
+          "Date": "29 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227346/units/208491/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Функции и рекурсия",
+          "Date": "6 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227347/units/211798/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "ООП в Python. Занятие 1",
+          "Date": "13 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227348/units/215037/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "ООП. Занятие 2. Наследование",
+          "Date": "20 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227349/units/217531/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "ООП. Занятие 3. Статические поля и методы",
+          "Date": "27 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227350/units/220258/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Jupyter notebook. Введение",
+          "Date": "10 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227351/units/223957/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "17 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227352/units/226007/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Python. Pandas",
+          "Date": "24 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227353/units/228241/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Jupyter notebook. Занятие 3",
+          "Date": "1 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227354/units/231155/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Python. Pandas",
+          "Date": "8 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227355/units/233608/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Python. Pandas",
+          "Date": "15 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227356/units/235842/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Python. Pandas",
+          "Date": "22 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227357/units/238064/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Python. Pandas",
+          "Date": "29 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227358/units/239418/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Jupyter notebook. Занятие 3",
+          "Date": "12 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227359/units/240814/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Python. Pandas\nСеместровая работа",
+          "Date": "19 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227360/units/242848/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Jupyter notebook. Занятие 3",
+          "Date": "26 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227361/units/244934/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Python. Введение в NumPy",
+          "Date": "2 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227362/units/246813/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Характеристики данных. Описательная статистика",
+          "Date": "9 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227363/units/248926/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Библиотека urllib. Библиотека BeautifulSoup",
+          "Date": "16 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227364/units/251220/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Работа с API. API социальной сети Вконтакте",
+          "Date": "2 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227365/units/254998/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Работа с API. API Яндекс.Карт. Геовычисления",
+          "Date": "16 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227366/units/259818/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа №2",
+          "Date": "23 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227367/units/261744/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Разбор контрольной работы, решение задач",
+          "Date": "30 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227368/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Библиотека NetworkX. Построение графа социальной сети",
+          "Date": "6 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227369/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Практическая работа. Странная незапланированная практика повышенной сложности",
+          "Date": "13 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227370/units/269014/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Работа с базами данных на примере sqlite. Основы SQL",
+          "Date": "20 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227371/units/271033/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Работа с базами данных на примере sqlite. Основы SQL",
+          "Date": "27 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227372/units/274056/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Практики промышленной разработки на python. Как читать чужой исходный код",
+          "Date": "11 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227373/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Визуализируем данные на карте. Python Pickle",
+          "Date": "18 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227374/units/280669/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Визуализируем данные на карте. Python Pickle",
+          "Date": "25 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/227375/units/283263/",
+          "Part": "2 часть"
+        }
+      ],
+      "LessonsCount": "32"
+    },
+    {
+      "Name": "Компьютерные сети",
+      "GradeCount": "8",
+      "AvgGrade": "4.47",
+      "VisitedClasses": "13",
+      "NumClassesOverall": "14",
+      "MainTeacher": "Новиков Иван Андреевич",
+      "Year": "2018:19",
+      "Link": "/pupil/courses/22/",
+      "Lessons": [
+        {
+          "Theme": "Базовые понятия. OSI",
+          "Date": "2 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264152/units/246905/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Основные протоколы",
+          "Date": "9 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264153/units/248995/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Основные протоколы",
+          "Date": "16 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264154/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Правила IP адресации",
+          "Date": "2 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264155/units/255040/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Расчет сети, маски. Подсети",
+          "Date": "16 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264156/units/259899/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Практика расчёта сетей",
+          "Date": "23 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264157/units/262332/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Проверочная работа - расчет сетей",
+          "Date": "30 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264158/units/264083/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Физические основы Ethernet",
+          "Date": "6 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264159/units/266511/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Маршрутизация, DNS",
+          "Date": "13 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264160/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Виртуализация. Введение.Настройка ВМ\nDNS. ARP. Сокеты",
+          "Date": "20 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264161/units/271602/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Виртуализация. Настройка виртуальной сети",
+          "Date": "27 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264162/units/274141/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Анализ сетевого трафика. Снифферы\nПрактика - Виртуальные машины и перехват",
+          "Date": "11 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264163/units/277998/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Практическая работа по анализу сетевого трафика",
+          "Date": "18 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264164/units/280763/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Практическая работа по анализу сетевого трафика",
+          "Date": "25 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/264165/units/283299/",
+          "Part": "1 часть"
+        }
+      ],
+      "LessonsCount": "14"
+    },
+    {
+      "Name": "Программирование на C++",
+      "GradeCount": "6",
+      "AvgGrade": "4.33",
+      "VisitedClasses": "13",
+      "NumClassesOverall": "14",
+      "MainTeacher": "Обухов Семен Павлович",
+      "Year": "2018:19",
+      "Link": "/pupil/courses/19/",
+      "Lessons": [
+        {
+          "Theme": "История языка. Среда программирования. Первая программа",
+          "Date": "7 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160328/units/110919/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Типы данных и их модификаторы. Решение задач",
+          "Date": "14 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160329/units/118753/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Тип bool. Логические выражения",
+          "Date": "21 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160330/units/123707/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Оператор if - неполная форма",
+          "Date": "28 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160331/units/125762/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Оператор if - полная форма",
+          "Date": "11 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160332/units/128116/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Вложенный условный оператор. Подготовка к КР",
+          "Date": "18 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160333/units/129541/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "25 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160334/units/130476/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Разбор КР. Оператор switch и тернарная операция",
+          "Date": "2 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160335/units/132656/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Оператор цикла while",
+          "Date": "9 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160336/units/134503/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Инкремент и декремент. Сокращенное присваивание",
+          "Date": "16 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160337/units/136306/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Операторы цикла do-while. Разбор задач",
+          "Date": "23 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160338/units/137576/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Выделение в цикле цифр в числе (от младших разрядов к старшим)",
+          "Date": "13 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160339/units/139994/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Выделение в цикле цифр в числе (от старших разрядов к младшим). Подготовка к КР",
+          "Date": "20 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160340/units/141320/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Семестровая контрольная работа",
+          "Date": "27 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160341/units/141897/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Разбор КР. Трассировка и отладка",
+          "Date": "3 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160342/units/143755/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Знакомство с вещественными числами. Библиотека cmath",
+          "Date": "10 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160343/units/145174/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Цикл for\nВложенные циклы",
+          "Date": "17 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160344/units/146699/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Массивы. Начало",
+          "Date": "3 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160346/units/149634/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Алгоритмы на массивах. Анализ и подсчёт",
+          "Date": "10 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160347/units/150930/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Алгоритмы на массивах. Анализ и подсчёт",
+          "Date": "17 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160348/units/152508/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Алгоритмы на массивах. Изменение массива, сортировка",
+          "Date": "24 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160349/units/153867/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "31 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/193042/units/154839/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Функции",
+          "Date": "7 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160350/units/156062/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Указатели",
+          "Date": "14 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160351/units/157822/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Динамические одномерные массивы",
+          "Date": "21 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160352/units/159330/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Двумерные массивы - введение",
+          "Date": "30 апреля",
+          "Weekday": "Понедельник",
+          "Link": "/pupil/calendar/160353/units/161057/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Двумерные массивы - решение задач",
+          "Date": "5 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160354/units/161684/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Подготовка к контрольной работе",
+          "Date": "12 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160355/units/163002/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Семестровая контрольная работа",
+          "Date": "19 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160356/units/164232/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Разбор контрольной работы. Управление IO",
+          "Date": "26 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160357/units/168485/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Повторение: линейный алгоритм, ветвление, циклы",
+          "Date": "8 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215769/units/195506/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Повторение: одномерные и двумерные массивы",
+          "Date": "15 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215770/units/199524/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Повторение: функции. Прототипы. Перегрузка функций. Параметры по умолчанию",
+          "Date": "22 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215771/units/204480/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Рекурсия",
+          "Date": "29 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215772/units/208085/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Тип данных char. Работа с символами",
+          "Date": "6 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215773/units/211807/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Строки. Введение",
+          "Date": "13 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215774/units/215024/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Строки. Выделение слов",
+          "Date": "20 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215775/units/217541/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "27 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215776/units/220246/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "std::fstream - знакомство",
+          "Date": "10 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215777/units/223971/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "std::fstream - произвольный доступ",
+          "Date": "17 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215778/units/226363/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Структуры",
+          "Date": "24 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215779/units/228392/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Ссылки. Пространства имён",
+          "Date": "1 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215780/units/231150/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Классы. Введение в ООП",
+          "Date": "8 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215781/units/233217/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Конструкторы и деструкторы",
+          "Date": "15 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215782/units/235793/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Конструктор копирования. Операция присваивания",
+          "Date": "22 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215783/units/238085/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Подготовка к КР",
+          "Date": "29 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215784/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Подготовка к КР",
+          "Date": "12 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215785/units/240821/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Семестровая контрольная работа",
+          "Date": "19 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215786/units/242689/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Разбор контрольной работы. Разделение на модули\nПерегрузка операций: арифметические операции (+, -, *, /)",
+          "Date": "26 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215787/units/244781/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Перегрузка операций: арифметические операции (+, -, *, /)\nДружественные функции. Перегрузка операций ввода/вывода",
+          "Date": "2 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271514/units/246884/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Перегрузка операций: операция [], (), операции приведения типа",
+          "Date": "9 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271515/units/248948/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Написание собственного класса \"string\"",
+          "Date": "16 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271516/units/251183/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Шаблоны",
+          "Date": "2 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271517/units/255000/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Введение в наследование. Секция protected",
+          "Date": "16 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271518/units/259796/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Наследование. Практическая работа",
+          "Date": "23 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271519/units/261840/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Полиморфизм и виртуальные функции",
+          "Date": "30 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271520/units/263298/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "6 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271521/units/266417/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Разбор контрольной работы. STL. std::string",
+          "Date": "13 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271522/units/269065/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "STL. std::vector. Итераторы и операции с указателями",
+          "Date": "20 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271523/units/270745/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "STL. Модуль algorithm. Часть 1",
+          "Date": "27 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271524/units/274026/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "STL. Модуль algorithm. Часть 2\nSTL. std::map",
+          "Date": "11 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271525/units/277908/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Семестровая контрольная работа",
+          "Date": "18 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271526/units/280173/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Разбор контрольной работы, выставление оценок",
+          "Date": "25 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271527/units/283276/",
+          "Part": "4 часть"
+        }
+      ],
+      "LessonsCount": "63"
+    },
+    {
+      "Name": "Диcкретная математика",
+      "GradeCount": "2",
+      "AvgGrade": "3",
+      "VisitedClasses": "14",
+      "NumClassesOverall": "15",
+      "MainTeacher": "Обухов Семен Павлович",
+      "Year": "2017:18",
+      "Link": "/pupil/courses/52/",
+      "Lessons": [
+        {
+          "Theme": "История систем счисления. «Цифры» различных систем счисления. Позиционные системы счисления. Базис, алфавит, основание",
+          "Date": "7 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160475/units/111820/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Развернутая и свернутая формы записи чисел. Представление произвольных чисел в позиционных системах счисления",
+          "Date": "14 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160476/units/119750/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Перевод целых чисел из десятичной системы счисления в Р-ичную Перевод дробей из Р-ичной системы счисления в десятичную и обратно\nВзаимосвязь между системами счисления с основаниями Q=Pm",
+          "Date": "21 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160477/units/124187/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Арифметические действия в различных системах счисления\nВзаимосвязь между системами счисления с основаниями Q=Pm",
+          "Date": "28 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160478/units/126099/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Взаимосвязь между системами счисления с основаниями Q=Pm",
+          "Date": "11 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160479/units/128347/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "18 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160480/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Системы счисления и архитектура компьютеров",
+          "Date": "25 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160481/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Понятие высказывания. Логические операции. Логические формулы. Таблицы истинности\nЗаконы алгебры логики. Применение алгебры логики",
+          "Date": "2 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160482/units/133206/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Законы алгебры логики. Применение алгебры логики\nОсновные булевы функции",
+          "Date": "9 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160483/units/134589/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Канонические формы логических формул. Теорема о СДНФ",
+          "Date": "16 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160484/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Канонические формы логических формул. Теорема о СДНФ\nМинимизация булевых функций. Полные системы булевых функций",
+          "Date": "23 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160485/units/137691/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Элементы схемотехники",
+          "Date": "13 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160486/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Графы ч.1",
+          "Date": "20 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160487/units/141302/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Итоговая контрольная работа",
+          "Date": "27 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160488/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Графы ч.2",
+          "Date": "3 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160489/units/143653/",
+          "Part": "1 часть"
+        }
+      ],
+      "LessonsCount": "15"
+    },
+    {
+      "Name": "Операционные системы",
+      "GradeCount": "3",
+      "AvgGrade": "3.93",
+      "VisitedClasses": "10",
+      "NumClassesOverall": "15",
+      "MainTeacher": "Сапожков Евгений Дмитриевич",
+      "Year": "2017:18",
+      "Link": "/pupil/courses/78/",
+      "Lessons": [
+        {
+          "Theme": "История ОС",
+          "Date": "10 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188195/units/145286/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Виртуализация. Внутреннее устройство ОС Windows",
+          "Date": "17 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188196/units/146846/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Windows. Пользователи и права\nOC Windows. Введение в сетевую инфраструктуру",
+          "Date": "3 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188198/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Windows. Введение в сетевую инфраструктуру\nOC Windows. Хранение данных. RAID",
+          "Date": "10 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188199/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Windows. Shell\nOC Windows. Shell/PowerShell/Bat",
+          "Date": "17 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188200/units/151273/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Windows. Shell/PowerShell/Bat",
+          "Date": "24 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188201/units/153945/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Windows. Контрольная работа",
+          "Date": "31 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/193044/units/155075/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "ОС Windows. Реестр",
+          "Date": "7 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188202/units/156345/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Linux. Введение. История. Идеология",
+          "Date": "14 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188203/units/158242/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Linux. Файловая система",
+          "Date": "21 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188204/units/159354/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Linux. Пользователи. Группы. Права\nOC Linux. Процессы",
+          "Date": "30 апреля",
+          "Weekday": "Понедельник",
+          "Link": "/pupil/calendar/188205/units/161096/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Linux. Процессы\nOC Linux. Shell",
+          "Date": "5 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188206/units/161811/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Linux. Bash",
+          "Date": "12 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188207/units/163168/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Контрольная работа",
+          "Date": "19 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188208/units/166249/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "OC Linux. Введение. История. Идеалогия",
+          "Date": "26 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/188209/",
+          "Part": "1 часть"
+        }
+      ],
+      "LessonsCount": "15"
+    },
+    {
+      "Name": "Программирование на C++",
+      "GradeCount": "8",
+      "AvgGrade": "3.13",
+      "VisitedClasses": "10",
+      "NumClassesOverall": "15",
+      "MainTeacher": "Кончагин Андрей Максимович",
+      "Year": "2017:18",
+      "Link": "/pupil/courses/19/",
+      "Lessons": [
+        {
+          "Theme": "История языка. Среда программирования. Первая программа",
+          "Date": "7 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160328/units/110919/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Типы данных и их модификаторы. Решение задач",
+          "Date": "14 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160329/units/118753/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Тип bool. Логические выражения",
+          "Date": "21 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160330/units/123707/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Оператор if - неполная форма",
+          "Date": "28 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160331/units/125762/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Оператор if - полная форма",
+          "Date": "11 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160332/units/128116/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Вложенный условный оператор. Подготовка к КР",
+          "Date": "18 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160333/units/129541/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "25 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160334/units/130476/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Разбор КР. Оператор switch и тернарная операция",
+          "Date": "2 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160335/units/132656/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Оператор цикла while",
+          "Date": "9 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160336/units/134503/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Инкремент и декремент. Сокращенное присваивание",
+          "Date": "16 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160337/units/136306/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Операторы цикла do-while. Разбор задач",
+          "Date": "23 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160338/units/137576/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Выделение в цикле цифр в числе (от младших разрядов к старшим)",
+          "Date": "13 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160339/units/139994/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Выделение в цикле цифр в числе (от старших разрядов к младшим). Подготовка к КР",
+          "Date": "20 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160340/units/141320/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Семестровая контрольная работа",
+          "Date": "27 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160341/units/141897/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Разбор КР. Трассировка и отладка",
+          "Date": "3 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160342/units/143755/",
+          "Part": "1 часть"
+        },
+        {
+          "Theme": "Знакомство с вещественными числами. Библиотека cmath",
+          "Date": "10 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160343/units/145174/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Цикл for\nВложенные циклы",
+          "Date": "17 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160344/units/146699/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Массивы. Начало",
+          "Date": "3 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160346/units/149634/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Алгоритмы на массивах. Анализ и подсчёт",
+          "Date": "10 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160347/units/150930/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Алгоритмы на массивах. Анализ и подсчёт",
+          "Date": "17 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160348/units/152508/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Алгоритмы на массивах. Изменение массива, сортировка",
+          "Date": "24 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160349/units/153867/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "31 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/193042/units/154839/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Функции",
+          "Date": "7 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160350/units/156062/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Указатели",
+          "Date": "14 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160351/units/157822/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Динамические одномерные массивы",
+          "Date": "21 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160352/units/159330/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Двумерные массивы - введение",
+          "Date": "30 апреля",
+          "Weekday": "Понедельник",
+          "Link": "/pupil/calendar/160353/units/161057/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Двумерные массивы - решение задач",
+          "Date": "5 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160354/units/161684/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Подготовка к контрольной работе",
+          "Date": "12 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160355/units/163002/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Семестровая контрольная работа",
+          "Date": "19 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160356/units/164232/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Разбор контрольной работы. Управление IO",
+          "Date": "26 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/160357/units/168485/",
+          "Part": "2 часть"
+        },
+        {
+          "Theme": "Повторение: линейный алгоритм, ветвление, циклы",
+          "Date": "8 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215769/units/195506/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Повторение: одномерные и двумерные массивы",
+          "Date": "15 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215770/units/199524/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Повторение: функции. Прототипы. Перегрузка функций. Параметры по умолчанию",
+          "Date": "22 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215771/units/204480/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Рекурсия",
+          "Date": "29 сентября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215772/units/208085/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Тип данных char. Работа с символами",
+          "Date": "6 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215773/units/211807/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Строки. Введение",
+          "Date": "13 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215774/units/215024/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Строки. Выделение слов",
+          "Date": "20 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215775/units/217541/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "27 октября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215776/units/220246/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "std::fstream - знакомство",
+          "Date": "10 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215777/units/223971/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "std::fstream - произвольный доступ",
+          "Date": "17 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215778/units/226363/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Структуры",
+          "Date": "24 ноября",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215779/units/228392/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Ссылки. Пространства имён",
+          "Date": "1 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215780/units/231150/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Классы. Введение в ООП",
+          "Date": "8 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215781/units/233217/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Конструкторы и деструкторы",
+          "Date": "15 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215782/units/235793/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Конструктор копирования. Операция присваивания",
+          "Date": "22 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215783/units/238085/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Подготовка к КР",
+          "Date": "29 декабря",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215784/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Подготовка к КР",
+          "Date": "12 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215785/units/240821/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Семестровая контрольная работа",
+          "Date": "19 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215786/units/242689/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Разбор контрольной работы. Разделение на модули\nПерегрузка операций: арифметические операции (+, -, *, /)",
+          "Date": "26 января",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/215787/units/244781/",
+          "Part": "3 часть"
+        },
+        {
+          "Theme": "Перегрузка операций: арифметические операции (+, -, *, /)\nДружественные функции. Перегрузка операций ввода/вывода",
+          "Date": "2 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271514/units/246884/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Перегрузка операций: операция [], (), операции приведения типа",
+          "Date": "9 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271515/units/248948/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Написание собственного класса \"string\"",
+          "Date": "16 февраля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271516/units/251183/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Шаблоны",
+          "Date": "2 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271517/units/255000/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Введение в наследование. Секция protected",
+          "Date": "16 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271518/units/259796/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Наследование. Практическая работа",
+          "Date": "23 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271519/units/261840/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Полиморфизм и виртуальные функции",
+          "Date": "30 марта",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271520/units/263298/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Полусеместровая контрольная работа",
+          "Date": "6 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271521/units/266417/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Разбор контрольной работы. STL. std::string",
+          "Date": "13 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271522/units/269065/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "STL. std::vector. Итераторы и операции с указателями",
+          "Date": "20 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271523/units/270745/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "STL. Модуль algorithm. Часть 1",
+          "Date": "27 апреля",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271524/units/274026/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "STL. Модуль algorithm. Часть 2\nSTL. std::map",
+          "Date": "11 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271525/units/277908/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Семестровая контрольная работа",
+          "Date": "18 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271526/units/280173/",
+          "Part": "4 часть"
+        },
+        {
+          "Theme": "Разбор контрольной работы, выставление оценок",
+          "Date": "25 мая",
+          "Weekday": "Суббота",
+          "Link": "/pupil/calendar/271527/units/283276/",
+          "Part": "4 часть"
+        }
+      ],
+      "LessonsCount": "63"
+    }
+  ]
+}

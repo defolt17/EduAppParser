@@ -71,8 +71,7 @@ func (lesson *Lesson) getMaterial(dr selenium.WebDriver) {
 		nameText, _ := nameEx.Text()
 		var tempBlock Block
 		tempBlock.Name = nameText
-		tempBlock.Steps = "PASS ITS A TEMP DATA"
-
+		tempBlock.getSteps(blockEx)
 		blocks = append(blocks, tempBlock)
 	}
 	lesson.Material = blocks
@@ -82,14 +81,29 @@ func (lesson *Lesson) getMaterial(dr selenium.WebDriver) {
 // Homework/Classwork etc.
 type Block struct {
 	Name  string
-	Steps string //[]Step TEMP TEMP TEMP TEMP
+	Steps []Step
+}
+
+func (block *Block) getSteps(blockEx selenium.WebElement) {
+	stepsEx := FindElementsWE(blockEx, selenium.ByXPATH, "./div/div[2]/ul/li[1]")
+	println(len(stepsEx))
+	var steps []Step
+	for _, stepEx := range stepsEx {
+		var step Step
+		println(stepEx)
+		step.Name = "NAME"
+		step.Link = "LINK"
+		step.items = "ITEMS"
+		steps = append(steps, step)
+	}
+	block.Steps = steps
 }
 
 // Step is a small paragraph inside a Block
 type Step struct {
 	Name  string
 	Link  string
-	items []Item
+	items string //[]Item
 }
 
 // Item is an under paragrapgh inside a paragraph
@@ -123,7 +137,7 @@ func refreshPage(dr selenium.WebDriver) {
 func FindElementWD(dr selenium.WebDriver, qType string, q string) selenium.WebElement {
 	res, err := dr.FindElement(qType, q)
 	if err != nil {
-		time.Sleep(time.Millisecond * 100)
+		time.Sleep(time.Millisecond * 50)
 		res = FindElementWD(dr, qType, q)
 	}
 	return res
@@ -135,7 +149,7 @@ func FindElementWD(dr selenium.WebDriver, qType string, q string) selenium.WebEl
 func FindElementsWD(dr selenium.WebDriver, qType string, q string) []selenium.WebElement {
 	res, err := dr.FindElements(qType, q)
 	if err != nil {
-		time.Sleep(time.Millisecond * 100)
+		time.Sleep(time.Millisecond * 50)
 		res = FindElementsWD(dr, qType, q)
 	}
 	return res
@@ -145,7 +159,7 @@ func FindElementsWD(dr selenium.WebDriver, qType string, q string) []selenium.We
 func FindElementWE(dr selenium.WebElement, qType string, q string) selenium.WebElement {
 	res, err := dr.FindElement(qType, q)
 	if err != nil {
-		time.Sleep(time.Millisecond * 100)
+		time.Sleep(time.Millisecond * 50)
 		res = FindElementWE(dr, qType, q)
 	}
 	return res
@@ -155,7 +169,7 @@ func FindElementWE(dr selenium.WebElement, qType string, q string) selenium.WebE
 func FindElementsWE(dr selenium.WebElement, qType string, q string) []selenium.WebElement {
 	res, err := dr.FindElements(qType, q)
 	if err != nil {
-		time.Sleep(time.Millisecond * 100)
+		time.Sleep(time.Millisecond * 50)
 		res = FindElementsWE(dr, qType, q)
 	}
 	return res

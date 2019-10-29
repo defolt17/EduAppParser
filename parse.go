@@ -62,7 +62,6 @@ type Lesson struct {
 
 func (lesson *Lesson) getMaterial(dr selenium.WebDriver) {
 	loadPage(dr, lesson.Link)
-	//time.Sleep(time.Millisecond * 2000) // #FIX IT!# #FIX IT!# #FIX IT!# #FIX IT!# #FIX IT!# #FIX IT!# #FIX IT!# #FIX IT!# #FIX IT!# #FIX IT!#
 	materialBlock := FindElementWD(dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div/div/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div[3]")
 	blocksEx := FindElementsWE(materialBlock, selenium.ByXPATH, "./div")
 	var blocks []Block
@@ -85,15 +84,19 @@ type Block struct {
 }
 
 func (block *Block) getSteps(blockEx selenium.WebElement) {
-	stepsEx := FindElementsWE(blockEx, selenium.ByXPATH, "./div/div[2]/ul/li[1]")
-	println(len(stepsEx))
+	stepsEx := FindElementsWE(blockEx, selenium.ByXPATH, "./div/div[2]/ul/li")
 	var steps []Step
 	for _, stepEx := range stepsEx {
 		var step Step
-		println(stepEx)
-		step.Name = "NAME"
-		step.Link = "LINK"
-		step.items = "ITEMS"
+		stepNameEx := FindElementWE(stepEx, selenium.ByXPATH, "./a/span")
+		stepLinkEx := FindElementWE(stepEx, selenium.ByXPATH, "./a")
+		itemsEx := FindElementsWE(stepEx, selenium.ByXPATH, "./ul/li")
+
+		fmt.Println(len(itemsEx))
+
+		step.Name, _ = stepNameEx.Text()
+		step.Link, _ = stepLinkEx.GetAttribute("href")
+		step.items = "ITEMS PASS"
 		steps = append(steps, step)
 	}
 	block.Steps = steps

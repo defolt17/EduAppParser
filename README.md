@@ -18,5 +18,5 @@ Remove unnecissary iterations over course parts(p2->p1->p2)
 </br>
 Fix previous course year duration copy (y1, y2:p1,p2 p3,p4 not p1,p2,p3,p4 p1,p2,p3,p4)
 </br>
-Overall progress: 10%
+Overall progress: 15%
 </br>

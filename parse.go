@@ -90,13 +90,10 @@ func (block *Block) getSteps(blockEx selenium.WebElement) {
 		var step Step
 		stepNameEx := FindElementWE(stepEx, selenium.ByXPATH, "./a/span")
 		stepLinkEx := FindElementWE(stepEx, selenium.ByXPATH, "./a")
-		itemsEx := FindElementsWE(stepEx, selenium.ByXPATH, "./ul/li")
-
-		fmt.Println(len(itemsEx))
 
 		step.Name, _ = stepNameEx.Text()
 		step.Link, _ = stepLinkEx.GetAttribute("href")
-		step.items = "ITEMS PASS"
+		step.getItems(stepEx)
 		steps = append(steps, step)
 	}
 	block.Steps = steps
@@ -106,12 +103,38 @@ func (block *Block) getSteps(blockEx selenium.WebElement) {
 type Step struct {
 	Name  string
 	Link  string
-	items string //[]Item
+	Items []Item
+}
+
+func (step *Step) getItems(stepEx selenium.WebElement) {
+	itemsEx := FindElementsWE(stepEx, selenium.ByXPATH, "./ul/li")
+	var items []Item
+	for _, itemEx := range itemsEx {
+		var item Item
+		itemNameEx := FindElementWE(itemEx, selenium.ByXPATH, "./a/div/div/span")
+		itemLinkEx := FindElementWE(itemEx, selenium.ByXPATH, "./a")
+		itemIconEx := FindElementWE(itemEx, selenium.ByXPATH, "./a/div/div/i")
+
+		tempString, _ := itemIconEx.GetAttribute("class")
+		tempStringSplit := strings.Fields(tempString)
+
+		itemNameText, _ := itemNameEx.Text()
+		itemLinkText, _ := itemLinkEx.GetAttribute("href")
+		itemIconText := tempStringSplit[1]
+
+		item.Name = itemNameText
+		item.Link = itemLinkText
+		item.Icon = itemIconText
+
+		items = append(items, item)
+	}
+	step.Items = items
 }
 
 // Item is an under paragrapgh inside a paragraph
 type Item struct {
 	Name string
+	Icon string
 	Link string
 }
 
@@ -334,7 +357,7 @@ func main() {
 
 	var tempLesson Lesson
 
-	tempLesson.Link = "/pupil/calendar/309336/"
+	tempLesson.Link = "/pupil/calendar/309337/units/steps/454643/root"
 
 	tempLesson.getMaterial(dr)
 

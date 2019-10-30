@@ -12,6 +12,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/tebeka/selenium"
+	"github.com/tebeka/selenium/firefox"
 )
 
 var (
@@ -31,7 +32,15 @@ type Student struct {
 	Courses []Course
 }
 
-// Course is a course class # WOW realy?
+func (student *Student) getStudent(dr selenium.WebDriver) {
+	loadPage(dr, profileLink)
+
+	nameEx := FindElementWD(dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[1]/div/div[2]/div[1]/div/div[2]/div/div[1][@class='lead']")
+
+	student.Name, _ = nameEx.Text()
+}
+
+// Course is a course class
 type Course struct {
 	Name                              string
 	Part                              string
@@ -45,12 +54,12 @@ type Course struct {
 	LessonsCount                      string
 }
 
-func (student *Student) getStudent(dr selenium.WebDriver) {
-	loadPage(dr, profileLink)
-
-	nameEx := FindElementWD(dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[1]/div/div[2]/div[1]/div/div[2]/div/div[1][@class='lead']")
-
-	student.Name, _ = nameEx.Text()
+func (student *Student) getCoursesMaterial(dr selenium.WebDriver) {
+	for i := 0; i < len(student.Courses); i++ {
+		for j := 0; j < len(student.Courses[i].Lessons); j++ {
+			student.Courses[i].Lessons[j].getMaterial(dr)
+		}
+	}
 }
 
 // Lesson is a lesson class
@@ -62,16 +71,20 @@ type Lesson struct {
 
 func (lesson *Lesson) getMaterial(dr selenium.WebDriver) {
 	loadPage(dr, lesson.Link)
+	time.Sleep(time.Millisecond * 400)
 	materialBlock := FindElementWD(dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div/div/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div[3]")
 	blocksEx := FindElementsWE(materialBlock, selenium.ByXPATH, "./div")
 	var blocks []Block
-	for _, blockEx := range blocksEx {
-		nameEx := FindElementWE(blockEx, selenium.ByXPATH, "./div/div[1]/div[1]/div/a/span[2]")
-		nameText, _ := nameEx.Text()
-		var tempBlock Block
-		tempBlock.Name = nameText
-		tempBlock.getSteps(blockEx)
-		blocks = append(blocks, tempBlock)
+
+	if len(blocksEx) > 0 {
+		for _, blockEx := range blocksEx {
+			nameEx := FindElementWE(blockEx, selenium.ByXPATH, "./div/div[1]/div[1]/div/a/span[2]")
+			nameText, _ := nameEx.Text()
+			var tempBlock Block
+			tempBlock.Name = nameText
+			tempBlock.getSteps(blockEx)
+			blocks = append(blocks, tempBlock)
+		}
 	}
 	lesson.Material = blocks
 }
@@ -79,8 +92,10 @@ func (lesson *Lesson) getMaterial(dr selenium.WebDriver) {
 // Block is class for bubble in Material
 // Homework/Classwork etc.
 type Block struct {
-	Name  string
-	Steps []Step
+	Name           string
+	ExpirationDate string
+	ExpirationType string
+	Steps          []Step
 }
 
 func (block *Block) getSteps(blockEx selenium.WebElement) {
@@ -132,10 +147,32 @@ func (step *Step) getItems(stepEx selenium.WebElement) {
 }
 
 // Item is an under paragrapgh inside a paragraph
+// I will add item recognition by icon
 type Item struct {
 	Name string
 	Icon string
 	Link string
+	Type string
+}
+
+// ContentText is a text based content
+type ContentText struct {
+	Text string
+}
+
+// ContentTask is a draft for task block
+// its values and solution send mechanism
+// (PRBLY in future I will do this)
+type ContentTask struct {
+	CheckType       string
+	IOType          string
+	TimeLimit       string
+	MemoryLimit     string
+	Condition       string
+	InputDataFormat string
+	IODataExample   string
+	Points          string
+	PointsOverall   string
 }
 
 func _checkBasic(err error) {
@@ -163,7 +200,7 @@ func refreshPage(dr selenium.WebDriver) {
 func FindElementWD(dr selenium.WebDriver, qType string, q string) selenium.WebElement {
 	res, err := dr.FindElement(qType, q)
 	if err != nil {
-		time.Sleep(time.Millisecond * 50)
+		time.Sleep(time.Millisecond * 100)
 		res = FindElementWD(dr, qType, q)
 	}
 	return res
@@ -175,7 +212,7 @@ func FindElementWD(dr selenium.WebDriver, qType string, q string) selenium.WebEl
 func FindElementsWD(dr selenium.WebDriver, qType string, q string) []selenium.WebElement {
 	res, err := dr.FindElements(qType, q)
 	if err != nil {
-		time.Sleep(time.Millisecond * 50)
+		time.Sleep(time.Millisecond * 100)
 		res = FindElementsWD(dr, qType, q)
 	}
 	return res
@@ -185,7 +222,7 @@ func FindElementsWD(dr selenium.WebDriver, qType string, q string) []selenium.We
 func FindElementWE(dr selenium.WebElement, qType string, q string) selenium.WebElement {
 	res, err := dr.FindElement(qType, q)
 	if err != nil {
-		time.Sleep(time.Millisecond * 50)
+		time.Sleep(time.Millisecond * 100)
 		res = FindElementWE(dr, qType, q)
 	}
 	return res
@@ -195,7 +232,7 @@ func FindElementWE(dr selenium.WebElement, qType string, q string) selenium.WebE
 func FindElementsWE(dr selenium.WebElement, qType string, q string) []selenium.WebElement {
 	res, err := dr.FindElements(qType, q)
 	if err != nil {
-		time.Sleep(time.Millisecond * 50)
+		time.Sleep(time.Millisecond * 100)
 		res = FindElementsWE(dr, qType, q)
 	}
 	return res
@@ -344,26 +381,54 @@ func (student *Student) getCourses(dr selenium.WebDriver) {
 }
 
 func main() {
-	cb := selenium.Capabilities{"browserName": "firefox"}
-	dr, err := selenium.NewRemote(cb, "")
+
+	caps := selenium.Capabilities{"browserName": "firefox"}
+	firefoxCaps := firefox.Capabilities{
+		Args: []string{
+			//"--headless",
+			//"-private",
+		},
+		Prefs: map[string]interface{}{
+			"browser.cache.disk.enable":             false,
+			"browser.cache.memory.enable":           false,
+			"browser.cache.disk.smart_size.enabled": false,
+			"browser.cache.memory.capacity":         15000,
+		},
+	}
+	caps.AddFirefox(firefoxCaps)
+	dr, err := selenium.NewRemote(caps, "")
 	_checkBasic(err)
-	defer dr.Quit()
 
-	var student Student
+	file, _ := ioutil.ReadFile("data.json")
+	student := Student{}
+	_ = json.Unmarshal([]byte(file), &student)
 
+	// var student Student
+
+	// loginMain(dr)
+	// student.getStudent(dr)
+	// student.getCourses(dr)
 	loginMain(dr)
-	//student.getStudent(dr)
-	//student.getCourses(dr)
 
-	var tempLesson Lesson
+	c := 1
+	for i := 0; i < len(student.Courses); i++ {
+		for j := 0; j < len(student.Courses[i].Lessons); j++ {
+			if c%35 == 0 {
+				dr.Quit()
+				dr, _ = selenium.NewRemote(caps, "")
+				loginMain(dr)
+				time.Sleep(time.Millisecond * 1500)
+			}
+			student.Courses[i].Lessons[j].getMaterial(dr)
+			c++
+		}
+	}
 
-	tempLesson.Link = "/pupil/calendar/309340"
-
-	tempLesson.getMaterial(dr)
-
-	fmt.Println(tempLesson.Material)
+	fmt.Println(c)
 
 	jsonString, err := json.Marshal(student)
 	_checkBasic(err)
-	ioutil.WriteFile("data.json", jsonString, os.ModePerm)
+	ioutil.WriteFile("DatsHowMafiaWorks.json", jsonString, os.ModePerm)
+
+	dr.Quit()
 }

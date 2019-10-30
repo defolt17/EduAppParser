@@ -20,6 +20,8 @@ Fix previous course year duration copy (y1, y2:p1,p2 p3,p4 not p1,p2,p3,p4 p1,p2
 </br>
 Implement concurency in sequential tasks (courses scrapping by year, lessons(hundreds of them))
 </br>
+Add find function by name, topic, material or task condition/name
+</br>
 Add tasks class and extract their solutions if present
 </br>
 Overall progress: 15%

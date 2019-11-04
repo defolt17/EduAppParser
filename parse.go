@@ -1,7 +1,9 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"io/ioutil"
 	"log"
 	"os"
 	"strconv"
@@ -32,9 +34,7 @@ type Student struct {
 
 func (student *Student) getStudent(dr selenium.WebDriver) {
 	loadPage(dr, profileLink)
-
 	nameEx := FindElementWD(dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[1]/div/div[2]/div[1]/div/div[2]/div/div[1][@class='lead']")
-
 	student.Name, _ = nameEx.Text()
 }
 
@@ -257,6 +257,80 @@ func loginMain(dr selenium.WebDriver) {
 	time.Sleep(time.Millisecond * 300)
 }
 
+func getCoursesByYear(dr *selenium.WebDriver, yearIndex *string, i *int, years *[]string, ID *uint16, Courses *[]Course) {
+	loadPage(*dr, coursesLink+"?year_selection="+*yearIndex)
+	pageCourses := FindElementsWD(*dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[contains(@class, 'panel panel-default')]")
+	for _, pageCourse := range pageCourses {
+		*ID++
+		nameEx := FindElementWE(pageCourse, selenium.ByXPATH, "./div[1]/div[1]/div/a[contains(@href, '/pupil/courses/')]")
+		gradeCountEx := FindElementWE(pageCourse, selenium.ByXPATH, "./div[2]/div[2]/div/div/div[1]/div[2]/*[contains(@class, 'shp-total-marks') or contains(@class, 'text-muted more-info')]")
+		avgGradeEx := FindElementWE(pageCourse, selenium.ByXPATH, "./div[2]/div[2]/div/div/div[2]/div[2]/div/span[contains(@class, ' shp-average')]")
+		classesVisits, err := pageCourse.FindElement(selenium.ByXPATH, "./div[2]/div[2]/div/div/div[5]/div[@class='col-lg-4 col-xs-no-padding']")
+		var classesVisitsTextList [2]string
+		if err != nil {
+			classesVisitsTextList[0] = ""
+			classesVisitsTextList[1] = ""
+		} else {
+			classesVisitsText, _ := classesVisits.Text()
+			var classesVisitsTextList [2]string
+			if classesVisitsText != "-" {
+				tempClassesList := strings.Split(classesVisitsText, "из")
+				classesVisitsTextList[0] = strings.Replace(tempClassesList[0], " ", "", 1)
+				classesVisitsTextList[1] = strings.Replace(tempClassesList[1], " ", "", 1)
+			} else {
+				classesVisitsTextList[0] = ""
+				classesVisitsTextList[1] = ""
+			}
+		}
+		mainTeacher, err := pageCourse.FindElement(selenium.ByXPATH, "./div[2]/div[3]/div/div/div/div[2]/div[@class='media-body lead small']")
+		var mainTeacherText string
+		if err != nil {
+			mainTeacherText = ""
+		} else {
+			mainTeacherText, _ = mainTeacher.Text()
+			mainTeacherText = strings.Replace(mainTeacherText, "Основной преподаватель:", "", 1)
+			mainTeacherText = strings.Replace(mainTeacherText, "\n", "", 1)
+		}
+		linkText, err := nameEx.GetAttribute("href")
+
+		var tempCourse Course
+		tempCourse.Name, err = nameEx.Text()
+		gradeCountText, err := gradeCountEx.Text()
+		gradeCountNum, err := strconv.Atoi(gradeCountText)
+		if err != nil {
+			tempCourse.GradeCount = 0
+		} else {
+			tempCourse.GradeCount = (uint16)(gradeCountNum)
+		}
+		avgGradeText, err := avgGradeEx.Text()
+		avgGradeNum, err := strconv.Atoi(avgGradeText)
+		if err != nil {
+			tempCourse.AvgGrade = 0.0
+		} else {
+			tempCourse.AvgGrade = (float32)(avgGradeNum)
+		}
+		visitedClassesNum, err := strconv.Atoi(classesVisitsTextList[0])
+		if err != nil {
+			tempCourse.VisitedClasses = 0
+		} else {
+			tempCourse.VisitedClasses = (uint16)(visitedClassesNum)
+		}
+		NumClassesOverallNum, err := strconv.Atoi(classesVisitsTextList[1])
+		if err != nil {
+			tempCourse.NumClassesOverall = 0
+		} else {
+			tempCourse.NumClassesOverall = (uint16)(NumClassesOverallNum)
+		}
+		tempCourse.MainTeacher = mainTeacherText
+		tempCourse.Year = (*years)[*i]
+		tempCourse.Link = linkText
+		tempCourse.ID = *ID
+
+		*Courses = append(*Courses, tempCourse)
+	}
+
+}
+
 // "Ex" means extracted
 func (student *Student) getCourses(dr selenium.WebDriver) {
 	loadPage(dr, coursesLink)
@@ -277,77 +351,7 @@ func (student *Student) getCourses(dr selenium.WebDriver) {
 	}
 
 	for i, yearIndex := range yearsIndex {
-		loadPage(dr, coursesLink+"?year_selection="+yearIndex)
-		pageCourses := FindElementsWD(dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[contains(@class, 'panel panel-default')]")
-		for _, pageCourse := range pageCourses {
-			ID++
-			nameEx := FindElementWE(pageCourse, selenium.ByXPATH, "./div[1]/div[1]/div/a[contains(@href, '/pupil/courses/')]")
-			gradeCountEx := FindElementWE(pageCourse, selenium.ByXPATH, "./div[2]/div[2]/div/div/div[1]/div[2]/*[contains(@class, 'shp-total-marks') or contains(@class, 'text-muted more-info')]")
-			avgGradeEx := FindElementWE(pageCourse, selenium.ByXPATH, "./div[2]/div[2]/div/div/div[2]/div[2]/div/span[contains(@class, ' shp-average')]")
-			classesVisits, err := pageCourse.FindElement(selenium.ByXPATH, "./div[2]/div[2]/div/div/div[5]/div[@class='col-lg-4 col-xs-no-padding']")
-			var classesVisitsTextList [2]string
-			if err != nil {
-				classesVisitsTextList[0] = ""
-				classesVisitsTextList[1] = ""
-			} else {
-				classesVisitsText, _ := classesVisits.Text()
-				var classesVisitsTextList [2]string
-				if classesVisitsText != "-" {
-					tempClassesList := strings.Split(classesVisitsText, "из")
-					classesVisitsTextList[0] = strings.Replace(tempClassesList[0], " ", "", 1)
-					classesVisitsTextList[1] = strings.Replace(tempClassesList[1], " ", "", 1)
-				} else {
-					classesVisitsTextList[0] = ""
-					classesVisitsTextList[1] = ""
-				}
-			}
-			mainTeacher, err := pageCourse.FindElement(selenium.ByXPATH, "./div[2]/div[3]/div/div/div/div[2]/div[@class='media-body lead small']")
-			var mainTeacherText string
-			if err != nil {
-				mainTeacherText = ""
-			} else {
-				mainTeacherText, _ = mainTeacher.Text()
-				mainTeacherText = strings.Replace(mainTeacherText, "Основной преподаватель:", "", 1)
-				mainTeacherText = strings.Replace(mainTeacherText, "\n", "", 1)
-			}
-			linkText, err := nameEx.GetAttribute("href")
-
-			var tempCourse Course
-			tempCourse.Name, err = nameEx.Text()
-			gradeCountText, err := gradeCountEx.Text()
-			gradeCountNum, err := strconv.Atoi(gradeCountText)
-			if err != nil {
-				tempCourse.GradeCount = 0
-			} else {
-				tempCourse.GradeCount = (uint16)(gradeCountNum)
-			}
-			avgGradeText, err := avgGradeEx.Text()
-			avgGradeNum, err := strconv.Atoi(avgGradeText)
-			if err != nil {
-				tempCourse.AvgGrade = 0.0
-			} else {
-				tempCourse.AvgGrade = (float32)(avgGradeNum)
-			}
-			visitedClassesNum, err := strconv.Atoi(classesVisitsTextList[0])
-			if err != nil {
-				tempCourse.VisitedClasses = 0
-			} else {
-				tempCourse.VisitedClasses = (uint16)(visitedClassesNum)
-			}
-			NumClassesOverallNum, err := strconv.Atoi(classesVisitsTextList[1])
-			if err != nil {
-				tempCourse.NumClassesOverall = 0
-			} else {
-				tempCourse.NumClassesOverall = (uint16)(NumClassesOverallNum)
-			}
-			tempCourse.MainTeacher = mainTeacherText
-			tempCourse.Year = years[i]
-			tempCourse.Link = linkText
-			tempCourse.ID = ID
-
-			Courses = append(Courses, tempCourse)
-		}
-
+		getCoursesByYear(&dr, &yearIndex, &i, &years, &ID, &Courses)
 	}
 
 	// Gets info about lessons of course and copies course if
@@ -404,27 +408,6 @@ func (student *Student) getCourses(dr selenium.WebDriver) {
 			partedCourses = append(partedCourses, tempPartedCourses)
 		}
 	}
-
-	// Check for double (courses with lenght > 1 year)
-	// Assuming its just 1 course
-	// Does not work!!!!!!!!!!!!!!!!!!!!!
-	for i, courseI := range partedCourses {
-		for j, courseJ := range partedCourses {
-			if courseJ.ID != courseI.ID {
-				if courseI.Name == courseJ.Name {
-					if courseI.Year != courseJ.Year {
-						copy(partedCourses[i:], partedCourses[i+2:])
-						partedCourses[len(partedCourses)-2] = Course{}
-						partedCourses = partedCourses[:len(partedCourses)-2]
-
-						copy(partedCourses[j+2:], partedCourses[i+2+2:])
-						partedCourses[len(partedCourses)-2] = Course{}
-						partedCourses = partedCourses[:len(partedCourses)-2]
-					}
-				}
-			}
-		}
-	}
 	student.Courses = partedCourses
 
 }
@@ -452,41 +435,41 @@ func main() {
 		},
 	}
 	caps.AddFirefox(firefoxCaps)
-	dr, err := selenium.NewRemote(caps, "")
-	_checkBasic(err)
-	/*
-		file, _ := ioutil.ReadFile("data.json")
-		student := Student{}
-		_ = json.Unmarshal([]byte(file), &student)
-	*/
-	var student Student
+	//dr, err := selenium.NewRemote(caps, "")
+	//_checkBasic(err)
 
-	loginMain(dr)
-	student.getStudent(dr)
-	student.getCourses(dr)
-	/*
-		c := 1
-		for i := 0; i < len(student.Courses); i++ {
+	//var student Student
+
+	file, _ := ioutil.ReadFile("DatsHowMafiaWorks.json")
+	student := Student{}
+	_ = json.Unmarshal([]byte(file), &student)
+
+	// loginMain(dr)
+	// student.getStudent(dr)
+	// student.getCourses(dr)
+
+	for i := 0; i < len(student.Courses); i++ {
+		go func(i int) {
+			log.Println("Worker: ", i, "Started")
+			dr, _ := selenium.NewRemote(caps, "")
+			loginMain(dr)
+			time.Sleep(time.Millisecond * 1500)
+
 			for j := 0; j < len(student.Courses[i].Lessons); j++ {
-				if c%35 == 0 {
-					dr.Quit()
-					dr, _ = selenium.NewRemote(caps, "")
-					loginMain(dr)
-					time.Sleep(time.Millisecond * 1500)
-				}
 				student.Courses[i].Lessons[j].getMaterial(dr)
-				c++
 			}
-		}
+			dr.Quit()
+			log.Println("Worker: ", i, "DUN")
+		}(i)
+	}
 
-		fmt.Println(c)
+	fmt.Scanln()
 
-		jsonString, err := json.Marshal(student)
-		_checkBasic(err)
-		ioutil.WriteFile("DatsHowMafiaWorks.json", jsonString, os.ModePerm)
-	*/
+	jsonString, err := json.Marshal(student)
+	_checkBasic(err)
+	ioutil.WriteFile("DatsHowMafiaWorks2.json", jsonString, os.ModePerm)
+
 	for _, course := range student.Courses {
 		fmt.Println(course.Name)
 	}
-	dr.Quit()
 }

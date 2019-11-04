@@ -21,4 +21,4 @@ Fix previous course year duration copy (y1, y2:p1,p2 p3,p4 not p1,p2,p3,p4 p1,p2
 Implement concurency in sequential tasks (courses scrapping by year, lessons(hundreds of them))
 </br>
 Overall progress: 15%
-</br>
+</br>c

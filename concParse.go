@@ -4,42 +4,65 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 
 	"github.com/joho/godotenv"
+
 	"github.com/tebeka/selenium"
 	"github.com/tebeka/selenium/firefox"
 )
 
+const (
+	authorizationResponseWait = time.Millisecond * 50
+)
+
 var (
-	currentLink  = ""
-	urlPrefix    = "https://my.informatics.ru"
+	currentLink = ""
+)
+
+// URLs
+const (
+	URLPrefix    = "https://my.informatics.ru"
 	loginLink    = "/accounts/root_login/"
 	mainPageLink = "/pupil/root/"
 	coursesLink  = "/pupil/courses/"
 	profileLink  = "/accounts/"
 )
 
+// Xpath constants
+const (
+	loginUsernameFieldXpath          = "./html/body/div[2]/div/div[3]/div[2]/div/div/form/div[1]/div[2]/input[@name='username']"
+	loginPasswordFieldXpath          = "./html/body/div[2]/div/div[3]/div[2]/div/div/form/div[1]/div[3]/input[@name='password']"
+	loginSubmitButtonXpath           = "./html/body/div[2]/div/div[3]/div[2]/div/div/form/div[2]/button[contains(text(), 'Войти')]"
+	rootRealNameXpath                = "./html/body/div[1]/div/div[2]/nav/ul[3]/li[2]/a/span"
+	profileNameXpath                 = "/html/body/div/div/div[4]/div[2]/div/div[1]/div/div[2]/div[1]/div/div[2]/div/div[1][@class='lead']"
+	profileAvatarXpath               = "/html/body/div/div/div[4]/div[2]/div/div[1]/div/div[2]/div[1]/div/div[1]/div/img"
+	coursesYearButtonXpath           = "/html/body/div/div/div[4]/div[2]/div/div[2]/ul//a[@href='javascript:void(0)']"
+	coursesYearCourseNameXpath       = "./div[1]/div[1]/div/a[contains(@href, '/pupil/courses/')]"
+	coursesYearCourseGradeCount      = "./div[2]/div[2]/div/div/div[1]/div[2]/*[contains(@class, 'shp-total-marks') or contains(@class, 'text-muted more-info')]"
+	coursesYearCourseAvgGrade        = "./div[2]/div[2]/div/div/div[2]/div[2]/div/span[contains(@class, ' shp-average')]"
+	coursesYearCourseVisits          = "./div[2]/div[2]/div/div/div[5]/div[@class='col-lg-4 col-xs-no-padding']"
+	coursesYearCourseMainTeacherName = "./div[2]/div[3]/div/div/div/div[2]/div[@class='media-body lead small']"
+	coursesYearCourseBlock           = "/html/body/div/div/div[4]/div[2]/div/div[contains(@class, 'panel panel-default')]"
+)
+
 // Student is a user's data class
 type Student struct {
-	Name    string
-	Mail    string
-	Phone   string
-	Courses []Course
-}
-
-func (student *Student) getStudent(dr selenium.WebDriver) {
-	loadPage(dr, profileLink)
-	nameEx := FindElementWD(dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[1]/div/div[2]/div[1]/div/div[2]/div/div[1][@class='lead']")
-	student.Name, _ = nameEx.Text()
+	Name         string
+	AvatarURL    string
+	Courses      []Course
+	CoursesCount uint16
 }
 
 // Course is a course class
 type Course struct {
-	ID                                uint16 //This is convinient for distinguishing courses with same name
+	ID                                uint16
 	Name                              string
 	Part                              uint8
+	StartDate                         string
+	EndDate                           string
 	GradeCount                        uint16
 	AvgGrade                          float32
 	VisitedClasses, NumClassesOverall uint16
@@ -50,181 +73,228 @@ type Course struct {
 	LessonsCount                      uint16
 }
 
-func (student *Student) getCourses(dr selenium.WebDriver, caps selenium.Capabilities, cookies *[]selenium.Cookie) {
-	loadPage(dr, coursesLink)
-
-	exYears := FindElementsWD(dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[2]/ul//a[@href='javascript:void(0)']")
-
-	yearsNum := len(exYears)
-	yearsIndex := make([]string, yearsNum)
-	years := make([]string, yearsNum)
-
-	//var ID uint16
-	//var Courses []Course
-
-	for i, elem := range exYears {
-		yearsIndex[i], _ = elem.GetAttribute("data-value")
-		years[i], _ = elem.Text()
-		years[i] = strings.Replace(years[i], "/", ":", 1)
-	}
-
-	for _, yearIndex := range yearsIndex {
-		go func(caps *selenium.Capabilities, yearIndex *string, cookies *[]selenium.Cookie) {
-			dr, _ := selenium.NewRemote(*caps, "")
-			for _, cookie := range *cookies {
-				dr.AddCookie(&cookie)
-			}
-
-			println(*yearIndex)
-			loadPage(dr, coursesLink+"?year_selection="+*yearIndex)
-			//pageCourses := FindElementsWD(dr, selenium.ByXPATH, "/html/body/div/div/div[4]/div[2]/div/div[contains(@class, 'panel panel-default')]")
-			time.Sleep(time.Second * 5)
-			dr.Quit()
-		}(&caps, &yearIndex, cookies)
-	}
-	fmt.Scanln()
-}
-
 // Lesson is a lesson class
 type Lesson struct {
 	Theme, Date, Weekday, Link string
-	Points                     uint16
-	Material                   []Block
+	// Material                   []Block
 }
 
-// Block is class for bubble in Material
-// Homework/Classwork etc.
-type Block struct {
-	Name           string
-	ExpirationDate string
-	ExpirationType string
-	Steps          []Step
-}
+func main() {
+	log.Println("Ultimate EduApp parser started!")
+	dr := getFirefoxWebDriver()
+	defer dr.Quit()
+	var student Student
 
-// Step is a small paragraph inside a Block
-type Step struct {
-	Name  string
-	Link  string
-	Items []Item
-}
+	loginMain(&dr)
+	student.getInfo(&dr)
+	student.getCourses(&dr)
 
-// Item is an under paragrapgh inside a paragraph
-// I will add item recognition by icon
-type Item struct {
-	Name string
-	Icon string
-	Link string
-	Type string
-}
-
-func _checkBasic(err error) {
-	if err != nil {
-		log.Panic(err)
-		os.Exit(1)
+	for _, course := range student.Courses {
+		fmt.Println(course)
 	}
+
+	// To be continued....
 }
 
-func loadPage(dr selenium.WebDriver, destLink string) {
+func loginMain(dr *selenium.WebDriver) {
+	err := godotenv.Load()
+	_checkBasic(err)
+
+	loadPage(dr, loginLink)
+
+	usernameField := FindElementWD(dr, selenium.ByXPATH, loginUsernameFieldXpath)
+	usernameField.SendKeys(os.Getenv("USERNAME"))
+
+	passwordField := FindElementWD(dr, selenium.ByXPATH, loginPasswordFieldXpath)
+	passwordField.SendKeys(os.Getenv("USERPASSWORD"))
+
+	loginButton := FindElementWD(dr, selenium.ByXPATH, loginSubmitButtonXpath)
+	loginButton.Click()
+
+	// Wait till root page is loaded
+	// Actually you have to wait for a bit after
+	// clicking "Login" button, otherwise authorization
+	// is going to fail
+	currentLink, err := (*dr).CurrentURL()
+	_checkBasic(err)
+
+	for currentLink != URLPrefix+mainPageLink {
+		time.Sleep(authorizationResponseWait)
+		currentLink, err = (*dr).CurrentURL()
+		_checkBasic(err)
+	}
+
+	// realName := FindElementWD(*dr, selenium.ByXPATH, // rootRealNameXpath)
+	// realNameText, err := realName.Text()
+	//_checkBasic(err)
+
+	currentLink = "/pupil/root/"
+	log.Println("Logged in as: ", os.Getenv("USERNAME"))
+	// log.Println("Real name: ", realNameText)
+	// IDK it doesn't work
+}
+
+func (student *Student) getInfo(dr *selenium.WebDriver) {
+	loadPage(dr, profileLink)
+
+	nameEx := FindElementWD(dr, selenium.ByXPATH, profileNameXpath)
+	nameText, err := nameEx.Text()
+	_checkBasic(err)
+
+	avatarURLEx := FindElementWD(dr, selenium.ByXPATH, profileAvatarXpath)
+	avatarURLText, err := avatarURLEx.GetAttribute("src")
+	_checkBasic(err)
+
+	student.AvatarURL = avatarURLText
+	student.Name = nameText
+}
+
+func (student *Student) getCourses(dr *selenium.WebDriver) {
+	loadPage(dr, coursesLink)
+
+	coursesYearsButtonsEx := FindElementsWD(dr, selenium.ByXPATH, coursesYearButtonXpath)
+	coursesYearsLink := make([]string, len(coursesYearsButtonsEx))
+	coursesYears := make([]string, len(coursesYearsButtonsEx))
+
+	for i, coursesYearButtonEx := range coursesYearsButtonsEx {
+		tempCourseYearLink, err := coursesYearButtonEx.GetAttribute("data-value")
+		_checkBasic(err)
+		coursesYearsLink[i] = tempCourseYearLink
+		tempYear, err := coursesYearButtonEx.Text()
+		_checkBasic(err)
+		coursesYears[i] = strings.Replace(tempYear, "/", ":", 1)
+	}
+
+	for _, coursesYearLink := range coursesYearsLink {
+		student.Courses = append(student.Courses, getCoursesFromYearPage(dr, &coursesYearLink)...)
+	}
+
+}
+
+func getCoursesFromYearPage(dr *selenium.WebDriver, coursesYearLink *string) []Course {
+	loadPage(dr, coursesLink+"?year_selection="+*coursesYearLink)
+
+	coursesBlocks := FindElementsWD(dr, selenium.ByXPATH, coursesYearCourseBlock)
+	yearCourses := make([]Course, 0, len(coursesBlocks))
+	for _, courseBlock := range coursesBlocks {
+		yearCourses = append(yearCourses, getCourseFromYearBlock(&courseBlock))
+	}
+	return yearCourses
+}
+
+func getCourseFromYearBlock(webEl *selenium.WebElement) Course {
+
+	var course Course
+	var mainTeacherText string
+
+	courseNameEx := FindElementWE(webEl, selenium.ByXPATH, coursesYearCourseNameXpath)
+	courseNameText, err := courseNameEx.Text()
+	_checkBasic(err)
+
+	gradeCountEx := FindElementWE(webEl, selenium.ByXPATH, coursesYearCourseGradeCount)
+	gradeCountText, err := gradeCountEx.Text()
+	_checkBasic(err)
+
+	avgGradeEx := FindElementWE(webEl, selenium.ByXPATH, coursesYearCourseAvgGrade)
+	avgGradeText, err := avgGradeEx.Text()
+	_checkBasic(err)
+
+	var classesVisitsTextList []string
+	var visitedClassesNum, classesOverallNum int
+	classesVisits, err := (*webEl).FindElement(selenium.ByXPATH, coursesYearCourseVisits)
+	if err != nil {
+		visitedClassesNum = 0
+		classesOverallNum = 0
+	} else {
+		classesVisitsText, err := classesVisits.Text()
+		_checkBasic(err)
+
+		classesVisitsTextList = strings.Split(classesVisitsText, " из ")
+		visitedClassesNum, _ = strconv.Atoi(classesVisitsTextList[0])
+		classesOverallNum, _ = strconv.Atoi(classesVisitsTextList[1])
+	}
+
+	mainTeacherEx, err := (*webEl).FindElement(selenium.ByXPATH, coursesYearCourseMainTeacherName)
+	if err != nil {
+		mainTeacherText = ""
+	} else {
+		mainTeacherText, _ = mainTeacherEx.Text()
+		mainTeacherText = strings.Replace(mainTeacherText, "Основной преподаватель:", "", 1)
+		mainTeacherText = strings.Replace(mainTeacherText, "\n", "", 1)
+	}
+
+	courseLinkText, err := courseNameEx.GetAttribute("href")
+	course.Name = courseNameText
+	course.Link = courseLinkText
+	course.NumClassesOverall = (uint16)(classesOverallNum)
+	course.VisitedClasses = (uint16)(visitedClassesNum)
+	course.MainTeacher = mainTeacherText
+
+	gradeCountNum, err := strconv.Atoi(gradeCountText)
+	if err != nil {
+		course.GradeCount = 0
+	} else {
+		course.GradeCount = (uint16)(gradeCountNum)
+	}
+
+	avgGradeNum, err := strconv.ParseFloat(avgGradeText, 32)
+	if err != nil {
+		course.AvgGrade = 0.0
+	} else {
+		course.AvgGrade = (float32)(avgGradeNum)
+	}
+
+	return course
+}
+
+func FindElementWE(webEl *selenium.WebElement, qType string, q string) selenium.WebElement {
+	res, err := (*webEl).FindElement(qType, q)
+	if err != nil {
+		time.Sleep(time.Millisecond * 50)
+		res = FindElementWE(webEl, qType, q)
+	}
+	return res
+}
+
+func FindElementsWE(webEl *selenium.WebElement, qType string, q string) []selenium.WebElement {
+	res, err := (*webEl).FindElements(qType, q)
+	if err != nil {
+		time.Sleep(time.Millisecond * 50)
+		res = FindElementsWE(webEl, qType, q)
+	}
+	return res
+}
+
+func FindElementWD(dr *selenium.WebDriver, qType string, q string) selenium.WebElement {
+	res, err := (*dr).FindElement(qType, q)
+	if err != nil {
+		time.Sleep(time.Millisecond * 50)
+		res = FindElementWD(dr, qType, q)
+	}
+	return res
+}
+
+func FindElementsWD(dr *selenium.WebDriver, qType string, q string) []selenium.WebElement {
+	res, err := (*dr).FindElements(qType, q)
+	if err != nil {
+		time.Sleep(time.Millisecond * 50)
+		res = FindElementsWD(dr, qType, q)
+	}
+	return res
+}
+
+func loadPage(dr *selenium.WebDriver, destLink string) {
 	if currentLink != destLink {
-		dr.Get(urlPrefix + destLink)
+		(*dr).Get(URLPrefix + destLink)
 		log.Println("Loaded: " + destLink)
 		return
 	}
 	log.Println("Staying on: " + currentLink)
 }
 
-func refreshPage(dr selenium.WebDriver) {
-	dr.Get(urlPrefix + currentLink)
-}
-
-// FindElementWD is super-duper smart recurent solution to find element
-// if it hasn't been loaded yet
-func FindElementWD(dr selenium.WebDriver, qType string, q string) selenium.WebElement {
-	res, err := dr.FindElement(qType, q)
-	if err != nil {
-		time.Sleep(time.Millisecond * 100)
-		res = FindElementWD(dr, qType, q)
-	}
-	return res
-}
-
-// FindElementsWD is basicly the same as FindElemet, but with "s"
-// Actually it's quite scary, cause if elements will load at different
-// time all of them won't be returned //oAo\\
-func FindElementsWD(dr selenium.WebDriver, qType string, q string) []selenium.WebElement {
-	res, err := dr.FindElements(qType, q)
-	if err != nil {
-		time.Sleep(time.Millisecond * 100)
-		res = FindElementsWD(dr, qType, q)
-	}
-	return res
-}
-
-// FindElementWE ...
-func FindElementWE(dr selenium.WebElement, qType string, q string) selenium.WebElement {
-	res, err := dr.FindElement(qType, q)
-	if err != nil {
-		time.Sleep(time.Millisecond * 100)
-		res = FindElementWE(dr, qType, q)
-	}
-	return res
-}
-
-// FindElementsWE ...
-func FindElementsWE(dr selenium.WebElement, qType string, q string) []selenium.WebElement {
-	res, err := dr.FindElements(qType, q)
-	if err != nil {
-		time.Sleep(time.Millisecond * 100)
-		res = FindElementsWE(dr, qType, q)
-	}
-	return res
-}
-
-func loginMain(dr selenium.WebDriver) {
-	err := godotenv.Load()
-	_checkBasic(err)
-	loadPage(dr, loginLink)
-
-	userC := make(chan selenium.WebElement)
-	passC := make(chan selenium.WebElement)
-	loginButtonC := make(chan selenium.WebElement)
-	go func() {
-		user := FindElementWD(dr, selenium.ByXPATH, "/html/body/div[2]/div/div[3]/div[2]/div/div/form/div[1]/div[2]/input[@name='username']")
-		userC <- user
-	}()
-	go func() {
-		pass := FindElementWD(dr, selenium.ByXPATH, "/html/body/div[2]/div/div[3]/div[2]/div/div/form/div[1]/div[3]/input[@name='password']")
-		passC <- pass
-	}()
-	go func() {
-		loginButton := FindElementWD(dr, selenium.ByXPATH, "/html/body/div[2]/div/div[3]/div[2]/div/div/form/div[2]/button[contains(text(), 'Войти')]")
-		loginButtonC <- loginButton
-	}()
-	for i := 0; i < 2; i++ {
-		select {
-		case user := <-userC:
-			user.SendKeys(os.Getenv("USERNAME"))
-		case pass := <-passC:
-			pass.SendKeys(os.Getenv("USERPASSWORD"))
-		}
-	}
-	loginButton := <-loginButtonC
-	loginButton.Click()
-
-	time.Sleep(time.Millisecond * 400)
-	currentLink = "/pupil/root/"
-	log.Printf("Logged in as: " + os.Getenv("USERNAME"))
-
-}
-
-func main() {
-	var student Student
+func getFirefoxWebDriver() selenium.WebDriver {
 	caps := selenium.Capabilities{"browserName": "firefox"}
 	firefoxCaps := firefox.Capabilities{
-		Args: []string{
-			//"--headless",
-			//"--private",
-		},
 		Prefs: map[string]interface{}{
 			"browser.cache.disk.enable":                false,
 			"browser.cache.memory.enable":              false,
@@ -236,19 +306,18 @@ func main() {
 			"network.prefetch-next":                    false,
 			"config.trim_on_minimize":                  true,
 			"network.http.pipelining":                  true,
-			"network.http.pipelining.maxrequests":      50,
+			"network.http.pipelining.maxrequests":      10,
 		},
 	}
 	caps.AddFirefox(firefoxCaps)
-
 	dr, err := selenium.NewRemote(caps, "")
 	_checkBasic(err)
+	return dr
+}
 
-	loginMain(dr)
-	cookies, _ := dr.GetCookies()
-	student.getStudent(dr)
-	student.getCourses(dr, caps, &cookies)
-
-	dr.Quit()
-
+func _checkBasic(err error) {
+	if err != nil {
+		log.Panic(err)
+		os.Exit(1)
+	}
 }

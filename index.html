@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>
+        
+            
+                Курсы
+            
+        
+        </title>
+<meta http-equiv="Content-language" content="ru">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="shortcut icon" href="/static/images/favicon.ico" />
+<link rel="apple-touch-icon" href="/static/images/apple-touch-icon.png" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,400i,700i" rel="stylesheet">
+<link rel="stylesheet" href="/static/gen/theme.css?1574421069" type="text/css">
+<link rel="stylesheet" href="/static/gen/packed.css?1574342498" type="text/css">
+<script type="application/javascript" src="/static/gen/packed.js?1574420934"></script>
+
+<script data-main="static/main" src="/static/requirejs/require.min.js?bust=1574421069"></script>
+<script id="requirement" timestamp="1574421069" src="/static/requirement.js?bust=1574421069"></script>
+<!--[if lt IE 9]>
+        <script src="/static/js/html5shiv.js" />
+        <![endif]-->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-143023206-1"></script>
+<script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-143023206-1');
+        </script>
+
+<script type="text/javascript" src="/static/mshp/libs/reports/tracking.js?bust=1574421069"></script>
+</head>
+<body class="skin-blue skin-1 fixed-nav  body-client">
+<div id="top-wrapper">
+<div id="#wrapper" data-byrow="false">
+<input type='hidden' name='csrfmiddlewaretoken' value='J9hSnJgoF7dE5DFJrEMkF6rLRbK8eej15muQf1129PFYvAPmgNd9sCEeBEurmtY2' />
+<span id="tooltip_holder"></span>
+<span id="modal_holder"></span>
+<div id="modal-alarm-button" class="modal modal-small fade modal-need-content-update">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h3 class="modal-title"></h3>
+</div>
+<div class="modal-body">
+<p class="modal-description"></p>
+<p class="modal-content-text">Вы уверены, что хотите продолжить?</p>
+</div>
+<div class="modal-footer">
+<a class="modal-yes">Да</a>
+<a onclick="$('#modal-alarm-button').modal('hide')" class="btn btn-default secondary">Нет</a>
+</div>
+</div>
+</div>
+</div>
+<div class="row row-no-padding border-bottom">
+<nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+<div class="navbar-header hidden-mini-navbar navbar_mini_target">
+<a class="navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs" style="margin-right: 15px" href="#"><i class="icon-align-justify"></i> </a>
+</div>
+<ul class="nav navbar-top-links navbar-left">
+<li>
+<a class="navbar-brand shp-brand" href="/">
+<span class="pull-left">
+<span alt="Brand" class="brand-logo img-responsive" />
+</span>
+</a>
+</li>
+</ul>
+<ul class="nav navbar-top-links navbar-left hidden-xs">
+<li class="nav-li-lg vertical-center">
+<a class="project-name m-l" href="/">
+EduApp
+ </a>
+</li>
+</ul>
+<ul class="nav navbar-top-links navbar-right">
+<li>
+</li>
+<li>
+<a href="/accounts/" class="nowrap small hidden-xs navy" style="padding: 0">
+<span class="inline-block p-w-xs text-right vertical-center text-dark">Десятченко<br>Илья</span>
+<img alt="image" class="img-rounded rounded_avatar " height="48px" width="48px" src="/media/avatars/croppie_61NCj15.png" />
+</a>
+</li>
+<li class="nav-li-lg">
+<a class="visible-xs navy" href="/accounts/" title="Настройки"><i class="icon-user"></i></a>
+</li>
+<li class="nav-li-lg top-menu__docs-link">
+<a class="ajax_btn get-modal-btn clickable ajax-redirect-btn append_additional_data append_location navy" data-url="/docs/"><i class="icon-info-sign"></i></a>
+</li>
+<li>
+<a title="Выйти" class="navbar-link logout-link" href="javascript:;" data-url='/api/v1/rest-auth/logout/'>
+<i class="icon-signout icon-lg"></i> Выйти
+</a>
+</li>
+</ul>
+</nav>
+</div>
+<span class="menu_url_kwargs hidden" data-params='[]'></span>
+<div class="navbar-background" id="navbar_background"></div>
+<nav class="navbar-default navbar-static-side " role="navigation" id="side_navigation">
+<div class="sidebar-collapse" id="#main_nav_bar">
+<div class="navbar navbar_mini navbar_mini_target" style="">
+<div class="navbar-header" style="float: right">
+<a class="navbar-minimalize minimalize-styl-2" style="margin: 0" href="#"><span class="mini_navbar_close_title"></span><i class="navbar_minimilize_menu_icon"></i></a>
+</div>
+</div>
+<ul class="nav metismenu" id="side-menu">
+<li>
+<a href="/pupil/root/">
+<i class='icon-home'></i>
+<span class="nav-label">Главная</span>
+</a>
+</li>
+<li class="" data-unique='Вопросы'>
+<a href="/employee/summary/discussions/"><i class='icon-question-sign'></i> <span class="nav-label">Вопросы</span>
+<div id='menu__discussions_list_view' data-url-name="discussions_list_view" class="update-item-content inline-block"></div>
+</a>
+</li>
+<li>
+<a href="/pupil/calendar/">
+<i class='icon-calendar'></i>
+<span class="nav-label">Занятия</span>
+</a>
+</li>
+<li class="active">
+<a href="/pupil/courses/">
+<i class='icon-random'></i>
+<span class="nav-label">Курсы</span>
+</a>
+</li>
+<li>
+<a href="/pupil/diary/">
+<i class='icon more-info'>5</i>
+<span class="nav-label">Успеваемость</span>
+</a>
+</li>
+<li>
+<a href="/pupil/registrations/">
+
+<i class='icon-plus-sign-alt'></i>
+<span class="nav-label">Запись на курсы</span>
+</a>
+</li>
+<li>
+<a href="/pupil/group_registrations/">
+<i class='icon-plus-sign-alt'></i>
+<span class="nav-label">Запись в группы</span>
+</a>
+</li>
+<li>
+<a href="/pupil/finances/">
+<i class='icon-usd'></i>
+<span class="nav-label">Финансы</span>
+</a>
+</li>
+<li>
+<a href="/pupil/achievements/">
+<i class='icon-trophy'></i>
+<span class="nav-label">Достижения</span>
+</a>
+</li>
+</ul>
+<ul class="nav nav-copyright shp-copyright">
+<li>
+<a>
+<span class="nav-label">&copy; ЧУ ДО «Школа программистов»<br>2012-2019</span>
+</a>
+</li>
+</ul>
+<ul class="nav nav-copyright yandex-copyright">
+<li>
+<a href="/offer/">
+<span class="nav-label clickable">Пользовательское соглашение</span>
+<br>
+<span class="nav-label">© ЧУ ДО «Школа программистов»<br>2012-2019</span>
+</a>
+</li>
+</ul>
+</div>
+</nav>
+<div id="page-wrapper" class="gray-bg">
+<div class="row row-no-padding page-wrapper white-bg page-heading page-heading-sm ">
+<div class="">
+<div class="m-l yandex-page-title">
+<h2 id="main-page-title">Курсы</h2>
+<div class="clearfix" id="breadcrumbs-menu">
+<ol class="breadcrumb third-level-menu">
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="wrapper wrapper-content clearfix row row-no-padding">
+<div class='form page-content pupil-content ' data-url=/pupil/courses/>
+<a data-suffix="" data-method="GET" class="ajax_btn replace-btn hidden refresh-btn from-suffix-btn replace-btn update-title-btn update-title-btn update-title-btn" data-name='' data-replace-selector="$(this).parents(&#39;.page-content:first&#39;)" data-replace_function="replaceWith">
+refresh
+</a>
+<div class="bs-callout bs-callout-amazing no-top clear">
+<h4 class="col-sm-10 col-xs-no-padding">Запишись на курсы прямо сейчас</h4>
+<div class="col-sm-2 text-right col-xs-no-padding-right">
+<a class="btn btn-amazing pull-right btn-sm" href="/pupil/registrations/">
+Записаться на курсы
+</a>
+</div>
+</div>
+<div class="form-group">
+<ul class="nav nav-pills nav-select-filter inline-block">
+<input value="703" class="search_form_input nav-select-value" type="hidden" name="year_selection">
+<li role="presentation" class="active rounded">
+<a href="javascript:void(0)" data-value="703" onclick="$(this).closest('.nav-select-filter').find('.nav-select-value').val($(this).data('value')).submit_form()">
+2019/20
+</a>
+</li>
+<li role="presentation" class=" rounded">
+<a href="javascript:void(0)" data-value="702" onclick="$(this).closest('.nav-select-filter').find('.nav-select-value').val($(this).data('value')).submit_form()">
+2018/19
+</a>
+</li>
+<li role="presentation" class=" rounded">
+<a href="javascript:void(0)" data-value="701" onclick="$(this).closest('.nav-select-filter').find('.nav-select-value').val($(this).data('value')).submit_form()">
+2017/18
+</a>
+</li>
+</ul>
+</div>
+<div class="panel panel-default panel-top-amazing">
+<div class="panel-heading panel-heading-filtered clickable" onclick="window.location='/pupil/courses/188/';">
+<div class="cell shp-full-width">
+<div class="panel-title">
+<a href="/pupil/courses/188/">Olymp_CTF_exam</a>
+</div>
+</div>
+<div class="cell">
+<a class="btn btn-amazing pull-right btn-sm" href="/pupil/courses/188/">Перейти в курс</a>
+</div>
+</div>
+<div class="panel-body run-callback" data-callback="match_height" data-match=".course_logo">
+<div class="col-md-3 col-sm-6 col-xs-padding">
+<a href="/pupil/courses/188/">
+<div class="awesome-avatar-preview rounded white-background course_logo">
+<img class="img-responsive center" src="/static/mshp/img/courses/assembler.png?bust=1574421069">
+</div>
+</a>
+<br class="visible-xs">
+</div>
+<div class="col-md-3 col-sm-6 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">оценок:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding ">
+<span class="text-muted more-info">пока нет</span>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">средний балл:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+<div class="inline-block" rel="tooltip" data-tooltip-html="true" data-title="1 часть<br>21.10.2019 - 03.11.2019"><span class=" shp-average shp-average-amazing">
+0.0
+</span></div>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8  col-xs-no-padding-left">оценка за часть:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+3 ноября
+</div>
+</div>
+<hr>
+<div class="col-lg-8 col-xs-no-padding-left">посещено занятий:</div>
+<div class="col-lg-4 col-xs-no-padding">
+1 из 1
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-12 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-sm-no-padding-right">
+
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/320863/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Последнее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+31 октября
+</div>
+<span class="small text-muted">
+Четверг
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+14:30 - 17:00
+</div>
+<span class="small">
+В кабинете Проспект Мира
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/320863/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<div class="clearfix">
+<div class="text-warning lead small">Курс закончился
+<span class="run-callback " data-callback="time_from_since" data-prefix="false" data-date="03.11.2019"></span>
+</div>
+</div>
+Срочные задания не найдены
+</div>
+</div>
+</div>
+<div class="panel panel-default panel-top-amazing">
+<div class="panel-heading panel-heading-filtered clickable" onclick="window.location='/pupil/courses/186/';">
+<div class="cell shp-full-width">
+<div class="panel-title">
+<a href="/pupil/courses/186/">Robot_begin_exam</a>
+</div>
+</div>
+<div class="cell">
+<a class="btn btn-amazing pull-right btn-sm" href="/pupil/courses/186/">Перейти в курс</a>
+</div>
+</div>
+<div class="panel-body run-callback" data-callback="match_height" data-match=".course_logo">
+<div class="col-md-3 col-sm-6 col-xs-padding">
+<a href="/pupil/courses/186/">
+<div class="awesome-avatar-preview rounded white-background course_logo">
+<img class="img-responsive center" src="/static/mshp/img/courses/assembler.png?bust=1574421069">
+</div>
+</a>
+<br class="visible-xs">
+</div>
+<div class="col-md-3 col-sm-6 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">оценок:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding ">
+<span class="text-muted more-info">пока нет</span>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">средний балл:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+<div class="inline-block" rel="tooltip" data-tooltip-html="true" data-title="1 часть<br>22.10.2019 - 03.11.2019"><span class=" shp-average shp-average-amazing">
+0.0
+</span></div>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8  col-xs-no-padding-left">оценка за часть:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+3 ноября
+</div>
+</div>
+<hr>
+<div class="col-lg-8 col-xs-no-padding-left">посещено занятий:</div>
+<div class="col-lg-4 col-xs-no-padding">
+5 из 5
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-12 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-sm-no-padding-right">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/321559/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Последнее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+31 октября
+</div>
+<span class="small text-muted">
+Пятница
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+00:00 - 00:00
+</div>
+&nbsp;
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/321559/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<div class="clearfix">
+<div class="text-warning lead small">Курс закончился
+<span class="run-callback " data-callback="time_from_since" data-prefix="false" data-date="03.11.2019"></span>
+</div>
+</div>
+Срочные задания не найдены
+</div>
+</div>
+</div>
+<div class="panel panel-default panel-top-amazing">
+<div class="panel-heading panel-heading-filtered clickable" onclick="window.location='/pupil/courses/187/';">
+<div class="cell shp-full-width">
+<div class="panel-title">
+<a href="/pupil/courses/187/">Отбор на олимпиадное программирование</a>
+</div>
+</div>
+<div class="cell">
+<a class="btn btn-amazing pull-right btn-sm" href="/pupil/courses/187/">Перейти в курс</a>
+</div>
+</div>
+<div class="panel-body run-callback" data-callback="match_height" data-match=".course_logo">
+<div class="col-md-3 col-sm-6 col-xs-padding">
+<a href="/pupil/courses/187/">
+<div class="awesome-avatar-preview rounded white-background course_logo">
+<img class="img-responsive center" src="/static/mshp/img/courses/assembler.png?bust=1574421069">
+</div>
+</a>
+<br class="visible-xs">
+</div>
+<div class="col-md-3 col-sm-6 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">оценок:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding ">
+<span class="text-muted more-info">пока нет</span>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">средний балл:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+<div class="inline-block" rel="tooltip" data-tooltip-html="true" data-title="1 часть<br>20.10.2019 - 10.11.2019"><span class=" shp-average shp-average-amazing">
+0.0
+</span></div>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8  col-xs-no-padding-left">оценка за часть:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+10 ноября
+</div>
+</div>
+<hr>
+<div class="col-lg-8 col-xs-no-padding-left">посещено занятий:</div>
+<div class="col-lg-4 col-xs-no-padding">
+1 из 1
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-12 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-sm-no-padding-right">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/320868/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Последнее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+30 октября
+</div>
+<span class="small text-muted">
+Среда
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+17:00 - 20:00
+</div>
+&nbsp;
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/320868/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+
+<div class="clearfix">
+<div class="text-warning lead small">Курс закончился
+<span class="run-callback " data-callback="time_from_since" data-prefix="false" data-date="10.11.2019"></span>
+</div>
+</div>
+Срочные задания не найдены
+</div>
+</div>
+</div>
+<div class="panel panel-default panel-top-amazing">
+<div class="panel-heading panel-heading-filtered clickable" onclick="window.location='/pupil/courses/115/';">
+<div class="cell shp-full-width">
+<div class="panel-title">
+<a href="/pupil/courses/115/">GO</a>
+</div>
+</div>
+<div class="cell">
+<a class="btn btn-amazing pull-right btn-sm" href="/pupil/courses/115/">Перейти в курс</a>
+</div>
+</div>
+<div class="panel-body run-callback" data-callback="match_height" data-match=".course_logo">
+<div class="col-md-3 col-sm-6 col-xs-padding">
+<a href="/pupil/courses/115/">
+<div class="awesome-avatar-preview rounded white-background course_logo">
+<img class="img-responsive center" src="/media/subjects/croppie_Kww09jM.png">
+</div>
+</a>
+<br class="visible-xs">
+</div>
+<div class="col-md-3 col-sm-6 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">оценок:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding ">
+<b class="shp-total-marks">6</b>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">средний балл:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+<div class="inline-block" rel="tooltip" data-tooltip-html="true" data-title="1 часть<br>21.09.2019 - 31.01.2020"><span class=" shp-average shp-average-success">4.74</span></div>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8  col-xs-no-padding-left">оценка за часть:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+31 января
+</div>
+</div>
+<hr>
+<div class="col-lg-8 col-xs-no-padding-left">посещено занятий:</div>
+<div class="col-lg-4 col-xs-no-padding">
+8 из 8
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-12 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="media">
+<div class="media-left">
+<img class="img-rounded teacher-avatar rounded_avatar teacher-avatar-lg" src="/media/avatars/croppie_4HSjTw0.png">
+</div>
+<div class="media-body lead small">
+Основной преподаватель: <br> Новиков Иван Андреевич
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-sm-no-padding-right">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/309343/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Последнее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+24 ноября
+</div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+13:30 - 15:00
+</div>
+<span class="small">
+В кабинете Кембридж
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/309343/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/309344/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Ближайшее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+1 декабря
+</div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+13:30 - 15:00
+</div>
+<span class="small">
+В кабинете Кембридж
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/309344/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<br>
+<div class="lead small no-bottom">
+Горящие задания
+</div>
+<hr class="divider">
+<div class="clearfix">
+<div class="col-sm-3 col-xs-no-padding clearfix">
+<div class="col-xs-12 col-xs-no-padding-left  two-line ">
+<div class="shp-donut shp-donut-info"></div>
+<div class="inline-block">
+<div class="top-line">
+13 октября
+ </div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+</div>
+<div class="hidden">GO</div>
+</div>
+<div class="col-sm-9 col-xs-no-padding clearfix">
+<div class="col-sm-5 col-xs-4 col-xs-padding-sm">
+<div class="inline-block wide-popover run-callback" data-html="True" data-trigger="hover" data-callback="register-wide-popover" data-container="body" data-placement='auto' data-title="
+    <span class='bold text-info'>Тест,  420/440</span>
+" data-content="
+    
+    <ul class='list-unstyled'>
+    
+        <li>
+            1. шаг
+            <ul class='list-unstyled indent'>
+              
+                <li>
+                    1.1. Тестирование
+                    
+                        
+                            
+                                <span class='pull-right text-muted'>&nbsp;<i class='icon-question'></i></span>
+                            
+                        
+                    
+                </li>
+            
+            </ul>
+        </li>
+    
+        <li>
+            2. шаг
+            <ul class='list-unstyled indent'>
+              
+            </ul>
+        </li>
+    
+    </ul>
+    
+">
+<span class="only-pupil">
+<a href="/pupil/calendar/309337/units/306581/">
+<i class="icon-eye-open"></i> Тест
+</a>
+</span>
+<span class="only-representative text-info">
+<i class="icon-eye-open"></i> Тест
+</span>
+</div>
+</div>
+<div class="col-sm-3 col-xs-4 col-xs-no-padding">
+</div>
+<div class="col-sm-3 hidden-xs nowrap col-xs-padding-sm">
+<div class="pull-left visible-lg">Прогресс</div>
+<div class="pull-right">420 / 440</div>
+<div class="progress progress-xs shp-clear clearfix">
+<div class="progress-bar progress-bar-success" style="width: 95.0%">
+</div>
+</div>
+</div>
+<div class="col-sm-1 col-xs-4 col-xs-no-padding">
+<div class="pull-left visible-xs text-success">420 / 440</div>
+<div class="pull-right only-pupil">
+&nbsp;
+</div>
+</div>
+</div>
+</div>
+<hr class="divider ">
+<div class="clearfix">
+<div class="col-sm-3 col-xs-no-padding clearfix">
+<div class="col-xs-12 col-xs-no-padding-left  two-line ">
+<div class="shp-donut shp-donut-info"></div>
+<div class="inline-block">
+<div class="top-line">
+20 октября
+</div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+</div>
+<div class="hidden">GO</div>
+</div>
+<div class="col-sm-9 col-xs-no-padding clearfix">
+<div class="col-sm-5 col-xs-4 col-xs-padding-sm">
+<div class="inline-block wide-popover run-callback" data-html="True" data-trigger="hover" data-callback="register-wide-popover" data-container="body" data-placement='auto' data-title="
+    <span class='bold text-info'>классная работа,  100/100</span>
+" data-content="
+    
+    <ul class='list-unstyled'>
+    
+        <li>
+            1. Тест
+            <ul class='list-unstyled indent'>
+              
+                <li>
+                    1.1. Тестирование
+                    
+                        
+                            
+                                <span class='pull-right text-muted'>&nbsp;<i class='icon-question'></i></span>
+                            
+                        
+                    
+                </li>
+            
+            </ul>
+        </li>
+    
+    </ul>
+    
+">
+<span class="only-pupil">
+<a href="/pupil/calendar/309338/units/310238/">
+<i class="icon-eye-open"></i> классная работа
+</a>
+</span>
+<span class="only-representative text-info">
+<i class="icon-eye-open"></i> классная работа
+</span>
+</div>
+</div>
+<div class="col-sm-3 col-xs-4 col-xs-no-padding">
+</div>
+<div class="col-sm-3 hidden-xs nowrap col-xs-padding-sm">
+<div class="pull-left visible-lg">Прогресс</div>
+<div class="pull-right">100 / 100</div>
+<div class="progress progress-xs shp-clear clearfix">
+<div class="progress-bar progress-bar-success" style="width: 100.0%">
+</div>
+</div>
+</div>
+<div class="col-sm-1 col-xs-4 col-xs-no-padding">
+<div class="pull-left visible-xs text-success">100 / 100</div>
+<div class="pull-right only-pupil">
+&nbsp;
+</div>
+</div>
+</div>
+</div>
+<hr class="divider ">
+<div class="clearfix">
+<div class="col-sm-3 col-xs-no-padding clearfix">
+<div class="col-xs-12 col-xs-no-padding-left  two-line ">
+<div class="shp-donut shp-donut-info"></div>
+<div class="inline-block">
+<div class="top-line">
+3 ноября
+</div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+</div>
+<div class="hidden">GO</div>
+</div>
+<div class="col-sm-9 col-xs-no-padding clearfix">
+<div class="col-sm-5 col-xs-4 col-xs-padding-sm">
+<div class="inline-block wide-popover run-callback" data-html="True" data-trigger="hover" data-callback="register-wide-popover" data-container="body" data-placement='auto' data-title="
+    <span class='bold text-info'>классная работа,  100/100</span>
+" data-content="
+    
+    <ul class='list-unstyled'>
+    
+        <li>
+            1. шаг
+            <ul class='list-unstyled indent'>
+              
+                <li>
+                    1.1. Тестирование
+                    
+                        
+                            
+                                <span class='pull-right text-muted'>&nbsp;<i class='icon-question'></i></span>
+                            
+                        
+                    
+                </li>
+            
+            </ul>
+        </li>
+    
+    </ul>
+    
+">
+<span class="only-pupil">
+<a href="/pupil/calendar/309340/units/315685/">
+<i class="icon-eye-open"></i> классная работа
+</a>
+</span>
+<span class="only-representative text-info">
+<i class="icon-eye-open"></i> классная работа
+</span>
+</div>
+</div>
+<div class="col-sm-3 col-xs-4 col-xs-no-padding">
+</div>
+<div class="col-sm-3 hidden-xs nowrap col-xs-padding-sm">
+<div class="pull-left visible-lg">Прогресс</div>
+<div class="pull-right">100 / 100</div>
+<div class="progress progress-xs shp-clear clearfix">
+<div class="progress-bar progress-bar-success" style="width: 100.0%">
+</div>
+</div>
+</div>
+<div class="col-sm-1 col-xs-4 col-xs-no-padding">
+<div class="pull-left visible-xs text-success">100 / 100</div>
+<div class="pull-right only-pupil">
+ &nbsp;
+</div>
+</div>
+</div>
+</div>
+<hr class="divider ">
+<div class="clearfix">
+<div class="col-sm-3 col-xs-no-padding clearfix">
+<div class="col-xs-12 col-xs-no-padding-left  two-line ">
+<div class="shp-donut shp-donut-success"></div>
+<div class="inline-block">
+<div class="top-line">
+24 ноября
+</div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+</div>
+<div class="hidden">GO</div>
+</div>
+<div class="col-sm-9 col-xs-no-padding clearfix">
+<div class="col-sm-5 col-xs-4 col-xs-padding-sm">
+<div class="inline-block wide-popover run-callback" data-html="True" data-trigger="hover" data-callback="register-wide-popover" data-container="body" data-placement='auto' data-title="
+    <span class='bold text-success'>домашняя работа,  0/100</span>
+" data-content="
+    
+    <ul class='list-unstyled'>
+    
+        <li>
+            1. шаг
+            <ul class='list-unstyled indent'>
+              
+                <li>
+                    1.1. A. Кодлаб LS
+                    
+                        
+                            <span class='pull-right text-muted'>&nbsp;<i class='icon-keyboard'></i></span>
+                        
+                    
+                </li>
+            
+            </ul>
+        </li>
+    
+    </ul>
+    
+">
+<span class="only-pupil">
+<a href="/pupil/calendar/309343/units/325909/">
+<i class="icon-eye-open"></i> домашняя работа
+</a>
+</span>
+<span class="only-representative text-info">
+<i class="icon-eye-open"></i> домашняя работа
+</span>
+</div>
+</div>
+<div class="col-sm-3 col-xs-4 col-xs-no-padding">
+<div class="text-warning inline-block" rel="tooltip" data-title="01.12.2019 13:30">
+<i class="icon-time"></i>
+<span class="run-callback " data-callback="time_from_since" data-prefix="false" data-date="01.12.2019 13:30:00"></span>
+</div>
+</div>
+<div class="col-sm-3 hidden-xs nowrap col-xs-padding-sm">
+<div class="pull-left visible-lg">Прогресс</div>
+<div class="pull-right">0 / 100</div>
+<div class="progress progress-xs shp-clear clearfix">
+<div class="progress-bar progress-bar-danger" style="width: 0.0%">
+</div>
+</div>
+</div>
+<div class="col-sm-1 col-xs-4 col-xs-no-padding">
+<div class="pull-left visible-xs text-danger">0 / 100</div>
+<div class="pull-right only-pupil">
+&nbsp;
+<a class="ajax_btn clickable refresh-content-on-success" rel='tooltip' data-placement='left' data-title="завершить выполнение" data-method='POST' data-url="/pupil/calendar/309343/units/325909/finish/">
+<i class="icon-flag-checkered icon-15x"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<hr class="divider ">
+<div class="clearfix">
+<div class="col-sm-3 col-xs-no-padding clearfix">
+<div class="col-xs-12 col-xs-no-padding-left  two-line ">
+<div class="shp-donut shp-donut-info"></div>
+<div class="inline-block">
+<div class="top-line">
+24 ноября
+</div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+ </div>
+<div class="hidden">GO</div>
+</div>
+<div class="col-sm-9 col-xs-no-padding clearfix">
+<div class="col-sm-5 col-xs-4 col-xs-padding-sm">
+<div class="inline-block wide-popover run-callback" data-html="True" data-trigger="hover" data-callback="register-wide-popover" data-container="body" data-placement='auto' data-title="
+    <span class='bold text-info'>Тестик,  100/100</span>
+" data-content="
+    
+    <ul class='list-unstyled'>
+    
+        <li>
+            1. шаг
+            <ul class='list-unstyled indent'>
+              
+                <li>
+                    1.1. Тест
+                    
+                        
+                            
+                                <span class='pull-right text-muted'>&nbsp;<i class='icon-question'></i></span>
+                            
+                        
+                    
+                </li>
+            
+            </ul>
+        </li>
+    
+        <li>
+            2. шаг
+            <ul class='list-unstyled indent'>
+              
+            </ul>
+        </li>
+    
+    </ul>
+    
+">
+<span class="only-pupil">
+<a href="/pupil/calendar/309343/units/325907/">
+<i class="icon-eye-open"></i> Тестик
+</a>
+</span>
+<span class="only-representative text-info">
+<i class="icon-eye-open"></i> Тестик
+</span>
+</div>
+</div>
+<div class="col-sm-3 col-xs-4 col-xs-no-padding">
+</div>
+<div class="col-sm-3 hidden-xs nowrap col-xs-padding-sm">
+<div class="pull-left visible-lg">Прогресс</div>
+<div class="pull-right">100 / 100</div>
+<div class="progress progress-xs shp-clear clearfix">
+<div class="progress-bar progress-bar-success" style="width: 100.0%">
+</div>
+</div>
+</div>
+<div class="col-sm-1 col-xs-4 col-xs-no-padding">
+<div class="pull-left visible-xs text-success">100 / 100</div>
+<div class="pull-right only-pupil">
+&nbsp;
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default panel-top-amazing">
+<div class="panel-heading panel-heading-filtered clickable" onclick="window.location='/pupil/courses/63/';">
+<div class="cell shp-full-width">
+<div class="panel-title">
+<a href="/pupil/courses/63/">Основы криптографии</a>
+</div>
+</div>
+<div class="cell">
+<a class="btn btn-amazing pull-right btn-sm" href="/pupil/courses/63/">Перейти в курс</a>
+</div>
+</div>
+<div class="panel-body run-callback" data-callback="match_height" data-match=".course_logo">
+<div class="col-md-3 col-sm-6 col-xs-padding">
+<a href="/pupil/courses/63/">
+<div class="awesome-avatar-preview rounded white-background course_logo">
+<img class="img-responsive center" src="/media/subjects/croppie_uYBcTB2.png">
+</div>
+</a>
+<br class="visible-xs">
+</div>
+<div class="col-md-3 col-sm-6 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">оценок:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding ">
+<b class="shp-total-marks">3</b>
+
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">средний балл:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+<div class="inline-block" rel="tooltip" data-tooltip-html="true" data-title="1 часть<br>21.09.2019 - 31.01.2020"><span class=" shp-average shp-average-success">5.07</span></div>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8  col-xs-no-padding-left">оценка за часть:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+31 января
+</div>
+</div>
+<hr>
+<div class="col-lg-8 col-xs-no-padding-left">посещено занятий:</div>
+<div class="col-lg-4 col-xs-no-padding">
+10 из 10
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-12 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="media">
+<div class="media-left">
+<img class="img-rounded teacher-avatar rounded_avatar teacher-avatar-lg" src="/static/mshp/img/empty_avatar_lg.jpg?bust=1574421069">
+</div>
+<div class="media-body lead small">
+Основной преподаватель: <br> Чуйко Роман Андреевич
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-sm-no-padding-right">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/312317/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Последнее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+24 ноября
+</div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+15:15 - 16:45
+</div>
+<span class="small">
+В кабинете Гарвард
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/312317/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/312318/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Ближайшее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+
+<div class="two-line">
+<div class="top-line">
+1 декабря
+</div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+15:15 - 16:45
+</div>
+<span class="small">
+В кабинете Гарвард
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/312318/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<br>
+<div class="lead small no-bottom">
+Горящие задания
+</div>
+<hr class="divider">
+<div class="clearfix">
+<div class="col-sm-3 col-xs-no-padding clearfix">
+<div class="col-xs-12 col-xs-no-padding-left  two-line ">
+<div class="shp-donut shp-donut-info"></div>
+<div class="inline-block">
+<div class="top-line">
+24 ноября
+</div>
+<span class="small text-muted">
+Воскресенье
+</span>
+</div>
+</div>
+<div class="hidden">Основы криптографии</div>
+</div>
+<div class="col-sm-9 col-xs-no-padding clearfix">
+<div class="col-sm-5 col-xs-4 col-xs-padding-sm">
+<div class="inline-block wide-popover run-callback" data-html="True" data-trigger="hover" data-callback="register-wide-popover" data-container="body" data-placement='auto' data-title="
+    <span class='bold text-info'>Практика,  80/1500</span>
+" data-content="
+    
+    <ul class='list-unstyled'>
+    
+        <li>
+            1. Предисловие
+            <ul class='list-unstyled indent'>
+              
+                <li>
+                    1.1. О задачах.
+                    
+                        
+                            <span class='pull-right text-muted'>&nbsp;<i class='icon-file-text-alt'></i></span>
+                        
+                    
+                </li>
+            
+            </ul>
+        </li>
+    
+        <li>
+            2. Программисты решают
+            <ul class='list-unstyled indent'>
+              
+                <li>
+                    2.1. Гаммирование. Эпизод IV. Возвращение программиста
+                    
+                        
+                            
+                                <span class='pull-right bold text-danger'>
+                                    &nbsp;80 / &nbsp;500 </span>
+                            
+                        
+                    
+                </li>
+            
+                <li>
+                    2.2. Образец кода
+                    
+                        
+                            <span class='pull-right text-muted'>&nbsp;<i class='icon-file-text-alt'></i></span>
+                        
+                    
+                </li>
+            
+            </ul>
+        </li>
+    
+        <li>
+            3. ГПСП
+            <ul class='list-unstyled indent'>
+              
+                <li>
+                    3.1. A. Хранилище кодов великолепных
+                    
+                        
+                            <span class='pull-right text-muted'>&nbsp;<i class='icon-keyboard'></i></span>
+                        
+                    
+                </li>
+            
+            </ul>
+        </li>
+    
+    </ul>
+    
+">
+<span class="only-pupil">
+<a href="/pupil/calendar/312317/units/325878/">
+<i class="icon-eye-open"></i> Практика
+</a>
+</span>
+<span class="only-representative text-info">
+<i class="icon-eye-open"></i> Практика
+</span>
+</div>
+</div>
+<div class="col-sm-3 col-xs-4 col-xs-no-padding">
+<div class="text-warning inline-block" rel="tooltip" data-title="01.12.2019 15:15">
+<i class="icon-time"></i>
+<span class="run-callback " data-callback="time_from_since" data-prefix="false" data-date="01.12.2019 15:15:00"></span>
+</div>
+</div>
+<div class="col-sm-3 hidden-xs nowrap col-xs-padding-sm">
+<div class="pull-left visible-lg">Прогресс</div>
+<div class="pull-right">80 / 1500</div>
+<div class="progress progress-xs shp-clear clearfix">
+<div class="progress-bar progress-bar-danger" style="width: 5.0%">
+</div>
+</div>
+</div>
+<div class="col-sm-1 col-xs-4 col-xs-no-padding">
+<div class="pull-left visible-xs text-danger">80 / 1500</div>
+<div class="pull-right only-pupil">
+&nbsp;
+<a class="ajax_btn clickable refresh-content-on-success" rel='tooltip' data-placement='left' data-title="завершить выполнение" data-method='POST' data-url="/pupil/calendar/312317/units/325878/finish/">
+<i class="icon-flag-checkered icon-15x"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="panel panel-default panel-top-amazing">
+<div class="panel-heading panel-heading-filtered clickable" onclick="window.location='/pupil/courses/23/';">
+<div class="cell shp-full-width">
+<div class="panel-title">
+<a href="/pupil/courses/23/">Программирование на Java</a>
+</div>
+</div>
+<div class="cell">
+<a class="btn btn-amazing pull-right btn-sm" href="/pupil/courses/23/">Перейти в курс</a>
+</div>
+</div>
+<div class="panel-body run-callback" data-callback="match_height" data-match=".course_logo">
+<div class="col-md-3 col-sm-6 col-xs-padding">
+<a href="/pupil/courses/23/">
+<div class="awesome-avatar-preview rounded white-background course_logo">
+<img class="img-responsive center" src="/media/subjects/croppie_XPYBkfu.png">
+</div>
+</a>
+<br class="visible-xs">
+</div>
+<div class="col-md-3 col-sm-6 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">оценок:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding ">
+<b class="shp-total-marks">1</b>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">средний балл:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+<div class="inline-block" rel="tooltip" data-tooltip-html="true" data-title="1 часть<br>21.09.2019 - 31.01.2020"><span class=" shp-average shp-average-info">4</span></div>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8  col-xs-no-padding-left">оценка за часть:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+31 января
+</div>
+</div>
+<hr>
+<div class="col-lg-8 col-xs-no-padding-left">посещено занятий:</div>
+<div class="col-lg-4 col-xs-no-padding">
+8 из 9
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-12 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="media">
+<div class="media-left">
+<img class="img-rounded teacher-avatar rounded_avatar teacher-avatar-lg" src="/media/avatars/croppie_FDMbezW.png">
+</div>
+<div class="media-body lead small">
+Основной преподаватель: <br> Обухов Семен Павлович
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-sm-no-padding-right">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/309246/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Последнее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+23 ноября
+</div>
+<span class="small text-muted">
+Суббота
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+13:30 - 15:00
+</div>
+<span class="small">
+В кабинете Кембридж
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/309246/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/309247/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Ближайшее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+30 ноября
+</div>
+<span class="small text-muted">
+Суббота
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+13:30 - 15:00
+</div>
+<span class="small">
+В кабинете Кембридж
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/309247/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+Срочные задания не найдены
+</div>
+</div>
+</div>
+<div class="panel panel-default panel-top-amazing">
+<div class="panel-heading panel-heading-filtered clickable" onclick="window.location='/pupil/courses/118/';">
+<div class="cell shp-full-width">
+<div class="panel-title">
+<a href="/pupil/courses/118/">Пром. Web-разработка</a>
+</div>
+</div>
+<div class="cell">
+<a class="btn btn-amazing pull-right btn-sm" href="/pupil/courses/118/">Перейти в курс</a>
+</div>
+</div>
+<div class="panel-body run-callback" data-callback="match_height" data-match=".course_logo">
+<div class="col-md-3 col-sm-6 col-xs-padding">
+<a href="/pupil/courses/118/">
+<div class="awesome-avatar-preview rounded white-background course_logo">
+<img class="img-responsive center" src="/media/subjects/croppie_NMIjxJW.png">
+</div>
+</a>
+<br class="visible-xs">
+</div>
+<div class="col-md-3 col-sm-6 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">оценок:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding ">
+<b class="shp-total-marks">5</b>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">средний балл:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+<div class="inline-block" rel="tooltip" data-tooltip-html="true" data-title="1 часть<br>21.09.2019 - 31.01.2020"><span class=" shp-average shp-average-success">4.63</span></div>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8  col-xs-no-padding-left">оценка за часть:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+31 января
+</div>
+</div>
+<hr>
+<div class="col-lg-8 col-xs-no-padding-left">посещено занятий:</div>
+<div class="col-lg-4 col-xs-no-padding">
+9 из 9
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-12 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="media">
+<div class="media-left">
+<img class="img-rounded teacher-avatar rounded_avatar teacher-avatar-lg" src="/static/mshp/img/empty_avatar_lg.jpg?bust=1574421069">
+</div>
+<div class="media-body lead small">
+Основной преподаватель: <br> Сапожков Евгений Дмитриевич
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-sm-no-padding-right">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/310672/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Последнее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+23 ноября
+</div>
+<span class="small text-muted">
+Суббота
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+15:15 - 16:45
+</div>
+<span class="small">
+В кабинете Гарвард
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/310672/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/310673/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Ближайшее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+30 ноября
+</div>
+<span class="small text-muted">
+Суббота
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+15:15 - 16:45
+</div>
+<span class="small">
+В кабинете Гарвард
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/310673/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+Срочные задания не найдены
+</div>
+</div>
+</div>
+<div class="panel panel-default panel-top-primary">
+<div class="panel-heading panel-heading-filtered clickable" onclick="window.location='/pupil/courses/64/';">
+<div class="cell shp-full-width">
+<div class="panel-title">
+<a href="/pupil/courses/64/">Пром. программирование</a>
+</div>
+</div>
+<div class="cell">
+<a class="btn btn-primary pull-right btn-sm" href="/pupil/courses/64/">Перейти в курс</a>
+</div>
+</div>
+<div class="panel-body run-callback" data-callback="match_height" data-match=".course_logo">
+<div class="col-md-3 col-sm-6 col-xs-padding">
+<a href="/pupil/courses/64/">
+<div class="awesome-avatar-preview rounded white-background course_logo">
+<img class="img-responsive center" src="/media/subjects/croppie_cLjcH2n.png">
+</div>
+</a>
+<br class="visible-xs">
+</div>
+<div class="col-md-3 col-sm-6 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">оценок:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding ">
+<b class="shp-total-marks">7</b>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8 col-xs-no-padding-left">средний балл:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+<div class="inline-block" rel="tooltip" data-tooltip-html="true" data-title="1 часть<br>14.09.2019 - 31.01.2020"><span class=" shp-average shp-average-success">4.75</span></div>
+</div>
+</div>
+<div class="clearfix">
+<div class="col-lg-8 col-sm-12 col-xs-8  col-xs-no-padding-left">оценка за часть:</div>
+<div class="col-lg-4 col-sm-12 col-xs-4 col-xs-no-padding">
+31 января
+</div>
+</div>
+<hr>
+<div class="col-lg-8 col-xs-no-padding-left">посещено занятий:</div>
+<div class="col-lg-4 col-xs-no-padding">
+10 из 10
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-sm-12 m-b col-xs-padding">
+<div class="panel panel-default course_logo">
+<div class="panel-body">
+<div class="media">
+<div class="media-left">
+<img class="img-rounded teacher-avatar rounded_avatar teacher-avatar-lg" src="/static/mshp/img/empty_avatar_lg.jpg?bust=1574421069">
+</div>
+<div class="media-body lead small">
+Основной преподаватель: <br> Сапожков Евгений Дмитриевич
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-12 col-sm-no-padding-right">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/310268/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Последнее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+23 ноября
+</div>
+<span class="small text-muted">
+Суббота
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+10:00 - 13:15
+</div>
+<span class="small">
+В кабинете Гарвард
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/310268/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+<div class="clearfix clickable nowrap" onclick="window.location='/pupil/calendar/310269/';">
+<div class="media shp-media">
+<div class="media-body">
+<div class="col-md-4 col-xs-12 col-xs-no-padding-left m-b-sm">
+Ближайшее занятие:
+</div>
+<div class="col-md-3 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+30 ноября
+</div>
+<span class="small text-muted">
+Суббота
+</span>
+</div>
+</div>
+<div class="col-md-5 col-xs-6">
+<div class="two-line">
+<div class="top-line">
+10:00 - 13:15
+</div>
+<span class="small">
+В кабинете Гарвард
+</span>
+</div>
+</div>
+</div>
+<div class="media-right vertical-center">
+<div class="pull-right">
+<a href="/pupil/calendar/310269/">
+<i class="icon-chevron-right icon text-muted"></i>
+</a>
+</div>
+<div class="pull-right only-representative"></div>
+</div>
+</div>
+</div>
+<hr class="divider">
+Срочные задания не найдены
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<span class="tracking_options" data-metrica="True" data-dimension1="pupil" data-dimension2="moscow">
+</span>
+<noscript><div><img src="https://mc.yandex.ru/watch/26058540?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+</div>
+</body>
+</html>

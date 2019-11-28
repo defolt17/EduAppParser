@@ -60,9 +60,11 @@ func main() {
 		courses = append(courses, getCoursesFromYearPage(&token, &year)...)
 	}
 
+	d := 0
 	for _, el := range courses {
-		parseCoursePage(&token, &el.Link)
+		d += parseCoursePage(&token, &el.Link)
 	}
+	fmt.Println(d)
 
 }
 
@@ -193,7 +195,7 @@ func parseCourseBlock(block *goquery.Selection) Course {
 	return course
 }
 
-func parseCoursePage(token *string, link *string) {
+func parseCoursePage(token *string, link *string) int {
 
 	doc := loadPage(mshpURL+*link, token)
 
@@ -210,9 +212,8 @@ func parseCoursePage(token *string, link *string) {
 			d++
 		})
 		d--
-		fmt.Println(d)
 	}
-
+	return d
 }
 
 func loadPage(URL string, token *string) goquery.Document {

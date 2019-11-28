@@ -39,6 +39,7 @@ type Course struct {
 }
 
 func main() {
+	log.Println("Starting Ultimate EduApp parser!")
 	var token, username, userpassword string
 
 	err := godotenv.Load()
@@ -50,17 +51,24 @@ func main() {
 
 	token = getToken(username, userpassword)
 
-	doc := getCoursesPage(&token)
-	coursesYears := getYearLinks(doc)
+	doc := loadPage(mshpURL+mshpCoursesPageURL, &token)
+	coursesYears := getYearLinks(&doc)
+
+	courses := make([]Course, 0)
 
 	for _, year := range *coursesYears {
-		fmt.Println(getCoursesFromYearPage(&token, &year))
+		courses = append(courses, getCoursesFromYearPage(&token, &year)...)
+	}
+
+	for _, el := range courses {
+		parseCoursePage(&token, &el.Link)
 	}
 
 }
 
 func getToken(username, userpassword string) string {
 
+	log.Println("Trying to get user token....")
 	requestBody, err := json.Marshal(map[string]string{
 		"username": username,
 		"password": userpassword,
@@ -85,33 +93,13 @@ func getToken(username, userpassword string) string {
 		log.Fatal(err)
 	}
 
+	log.Println("Successfully got user token.")
+
 	return m["token"]
 }
 
-func getCoursesPage(token *string) *goquery.Document {
-	client := &http.Client{}
-
-	req, err := http.NewRequest("GET", mshpURL+mshpCoursesPageURL, nil)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	req.Header.Set("Cookie", "eduapp_jwt="+*token)
-	resp, err := client.Do(req)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	defer resp.Body.Close()
-
-	document, err := goquery.NewDocumentFromReader(resp.Body)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	return document
-}
-
 func getYearLinks(doc *goquery.Document) *[]Year {
+	log.Print("Getting courses years....")
 	years := make([]Year, 0, 6)
 	doc.Find("div div div div ul li a").Each(func(index int, item *goquery.Selection) {
 		year := item.Text()
@@ -120,30 +108,15 @@ func getYearLinks(doc *goquery.Document) *[]Year {
 			years = append(years, Year{Year: year, Link: link})
 		}
 	})
+	log.Println("Successfully got courses years.")
 	return &years
 }
 
 func getCoursesFromYearPage(token *string, year *Year) []Course {
-	client := &http.Client{}
+
 	courses := make([]Course, 0)
 
-	URL := mshpURL + mshpCoursesPageURL + "?year_selection=" + year.Link
-	req, err := http.NewRequest("GET", URL, nil)
-	if err != nil {
-		log.Fatalln(err)
-	}
-
-	req.Header.Set("Cookie", "eduapp_jwt="+*token)
-	resp, err := client.Do(req)
-	if err != nil {
-		log.Fatalln(err)
-	}
-	defer resp.Body.Close()
-
-	doc, err := goquery.NewDocumentFromReader(resp.Body)
-	if err != nil {
-		log.Fatalln(err)
-	}
+	doc := loadPage(mshpURL+mshpCoursesPageURL+"?year_selection="+year.Link, token)
 
 	doc.Find(".panel-top-primary").Each(func(index int, block *goquery.Selection) {
 		courses = append(courses, parseCourseBlock(block))
@@ -218,4 +191,50 @@ func parseCourseBlock(block *goquery.Selection) Course {
 	course.Teacher = courseTeacherText
 
 	return course
+}
+
+func parseCoursePage(token *string, link *string) {
+
+	doc := loadPage(mshpURL+*link, token)
+
+	c := 0
+	doc.Find("ul .rounded").Each(func(_ int, el *goquery.Selection) {
+		c++
+	})
+
+	d := 0
+	for i := 1; i < c+1; i++ {
+
+		coursePartPage := loadPage(mshpURL+*link+"?part_selection="+strconv.Itoa(i), token)
+		coursePartPage.Find("tbody tr").Each(func(_ int, _ *goquery.Selection) {
+			d++
+		})
+		d--
+		fmt.Println(d)
+	}
+
+}
+
+func loadPage(URL string, token *string) goquery.Document {
+	client := &http.Client{}
+
+	req, err := http.NewRequest("GET", URL, nil)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	log.Print("Loading ", URL, "\n")
+	req.Header.Set("Cookie", "eduapp_jwt="+*token)
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer resp.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(resp.Body)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	return *doc
 }

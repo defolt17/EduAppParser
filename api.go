@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/joho/godotenv"
@@ -168,8 +169,28 @@ func parseCourseBlock(block *goquery.Selection) Course {
 	courseGradeAvgEx := block.Find(".shp-average")
 	courseGradeAvgText := courseGradeAvgEx.Text()
 	courseLessonsEx := block.Find(".col-lg-4.col-xs-no-padding")
+	courseLessonsVisited := 0
+	courseLessonsOverall := 0
+	courseTeacherText := "-"
 
-	// Contains "из" then split else 0 из 0
+	courseLessonsEx.Each(func(_ int, el *goquery.Selection) {
+		courseSelectionText := el.Text()
+		if strings.Contains(courseSelectionText, "из") {
+			courseLessonsArr := strings.Split(courseSelectionText, "из")
+			courseLessonsArr[0] = strings.TrimSpace(courseLessonsArr[0])
+			courseLessonsArr[1] = strings.TrimSpace(courseLessonsArr[1])
+			courseLessonsVisited, _ = strconv.Atoi(courseLessonsArr[0])
+			courseLessonsOverall, _ = strconv.Atoi(courseLessonsArr[1])
+		}
+	})
+
+	courseTeacherEx := block.Find(".media-body.lead.small")
+	courseTeacherEx.Each(func(_ int, el *goquery.Selection) {
+		s := el.Text()
+		s = strings.Split(s, "  ")[1]
+		s = strings.TrimSpace(s)
+		courseTeacherText = s
+	})
 
 	course.Name = courseNameText
 
@@ -192,6 +213,9 @@ func parseCourseBlock(block *goquery.Selection) Course {
 		courseGradeAvgFloat = 0.0
 	}
 	course.GradeAvg = (float32)(courseGradeAvgFloat)
+	course.LessonsVisited = courseLessonsVisited
+	course.LessonsOverall = courseLessonsOverall
+	course.Teacher = courseTeacherText
 
 	return course
 }

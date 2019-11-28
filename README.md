@@ -1,7 +1,6 @@
 # EduAppParser
 <h6>
-    Requires selenium-server.jar running in the background.
-    Works as supposed (Oct-23)
+    Works as supposed (Nov-28)
     </br>
     Note that you have to create ".env" file with your "USERNAME" and "USERPASSWORD". I will probalby add env variables.
 </h6>

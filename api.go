@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strconv"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/joho/godotenv"
@@ -26,6 +27,16 @@ type Year struct {
 	Link string
 }
 
+type Course struct {
+	Name           string
+	Link           string
+	GradeCount     int
+	GradeAvg       float32
+	LessonsVisited int
+	LessonsOverall int
+	Teacher        string
+}
+
 func main() {
 	var token, username, userpassword string
 
@@ -42,7 +53,7 @@ func main() {
 	coursesYears := getYearLinks(doc)
 
 	for _, year := range *coursesYears {
-		getCoursesYearPage(&token, &year)
+		fmt.Println(getCoursesFromYearPage(&token, &year))
 	}
 
 }
@@ -111,8 +122,9 @@ func getYearLinks(doc *goquery.Document) *[]Year {
 	return &years
 }
 
-func getCoursesYearPage(token *string, year *Year) {
+func getCoursesFromYearPage(token *string, year *Year) []Course {
 	client := &http.Client{}
+	courses := make([]Course, 0)
 
 	URL := mshpURL + mshpCoursesPageURL + "?year_selection=" + year.Link
 	req, err := http.NewRequest("GET", URL, nil)
@@ -132,13 +144,54 @@ func getCoursesYearPage(token *string, year *Year) {
 		log.Fatalln(err)
 	}
 
-	doc.Find(".panel-title").Each(func(index int, el *goquery.Selection) {
-		courseNameEx := el.Find("a")
-		courseNameText := courseNameEx.Text()
-		courseLink, exists := courseNameEx.Attr("href")
-		if exists {
-			fmt.Println(courseNameText, courseLink)
-		}
+	doc.Find(".panel-top-primary").Each(func(index int, block *goquery.Selection) {
+		courses = append(courses, parseCourseBlock(block))
 	})
 
+	doc.Find(".panel-top-amazing").Each(func(index int, block *goquery.Selection) {
+		courses = append(courses, parseCourseBlock(block))
+	})
+
+	return courses
+
+}
+
+func parseCourseBlock(block *goquery.Selection) Course {
+	course := Course{}
+
+	courseNameEx := block.Find("div div .panel-title a")
+	courseNameText := courseNameEx.Text()
+
+	courseLinkText, linkExists := courseNameEx.Attr("href")
+	courseGradeCountEx := block.Find("div div div div div div b")
+	courseGradeCountText := courseGradeCountEx.Text()
+	courseGradeAvgEx := block.Find(".shp-average")
+	courseGradeAvgText := courseGradeAvgEx.Text()
+	courseLessonsEx := block.Find(".col-lg-4.col-xs-no-padding")
+
+	// Contains "из" then split else 0 из 0
+
+	course.Name = courseNameText
+
+	if linkExists {
+		course.Link = courseLinkText
+	} else {
+		log.Fatalln("Could not find link for", courseNameText)
+	}
+
+	courseGradeCountInt, err := strconv.Atoi(courseGradeCountText)
+	if err != nil {
+		log.Print("Could not convert grade count at ", courseNameText, ". Setting default value 0\n")
+		courseGradeCountInt = 0
+	}
+	course.GradeCount = courseGradeCountInt
+
+	courseGradeAvgFloat, err := strconv.ParseFloat(courseGradeAvgText, 32)
+	if err != nil {
+		log.Print("Could not convert grade averege at ", courseNameText, ". Setting default value 0.0\n")
+		courseGradeAvgFloat = 0.0
+	}
+	course.GradeAvg = (float32)(courseGradeAvgFloat)
+
+	return course
 }

@@ -21,6 +21,11 @@ const (
 	mshpLoginAPIURL    = "/api/v1/rest-auth/login/"
 )
 
+type Year struct {
+	Year string
+	Link string
+}
+
 func main() {
 	var token, username, userpassword string
 
@@ -34,7 +39,11 @@ func main() {
 	token = getToken(username, userpassword)
 
 	doc := getCoursesPage(&token)
-	getYearLinks(doc)
+	coursesYears := getYearLinks(doc)
+
+	for _, year := range *coursesYears {
+		getCoursesYearPage(&token, &year)
+	}
 
 }
 
@@ -90,12 +99,46 @@ func getCoursesPage(token *string) *goquery.Document {
 	return document
 }
 
-func getYearLinks(doc *goquery.Document) {
+func getYearLinks(doc *goquery.Document) *[]Year {
+	years := make([]Year, 0, 6)
 	doc.Find("div div div div ul li a").Each(func(index int, item *goquery.Selection) {
 		year := item.Text()
 		link, exists := item.Attr("data-value")
 		if exists {
-			fmt.Println(year, link)
+			years = append(years, Year{Year: year, Link: link})
 		}
 	})
+	return &years
+}
+
+func getCoursesYearPage(token *string, year *Year) {
+	client := &http.Client{}
+
+	URL := mshpURL + mshpCoursesPageURL + "?year_selection=" + year.Link
+	req, err := http.NewRequest("GET", URL, nil)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	req.Header.Set("Cookie", "eduapp_jwt="+*token)
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer resp.Body.Close()
+
+	doc, err := goquery.NewDocumentFromReader(resp.Body)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	doc.Find(".panel-title").Each(func(index int, el *goquery.Selection) {
+		courseNameEx := el.Find("a")
+		courseNameText := courseNameEx.Text()
+		courseLink, exists := courseNameEx.Attr("href")
+		if exists {
+			fmt.Println(courseNameText, courseLink)
+		}
+	})
+
 }

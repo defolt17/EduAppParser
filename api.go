@@ -17,10 +17,11 @@ import (
 
 // Constants
 const (
-	mshpURL            = "https://my.informatics.ru"
-	mshpCoursesPageURL = "/pupil/courses/"
-	mshpLoginPageURL   = "/accounts/root_login/"
-	mshpLoginAPIURL    = "/api/v1/rest-auth/login/"
+	mshpURL              = "https://my.informatics.ru"
+	mshpCoursesPageURL   = "/pupil/courses/"
+	mshpLoginPageURL     = "/accounts/root_login/"
+	mshpLoginAPIURL      = "/api/v1/rest-auth/login/"
+	mshpGetClassesAPIURL = "/api/v1/teaching_situation/classes_users/headings/"
 )
 
 type Year struct {
@@ -29,13 +30,24 @@ type Year struct {
 }
 
 type Course struct {
-	Name           string
-	Link           string
-	GradeCount     int
-	GradeAvg       float32
-	LessonsVisited int
-	LessonsOverall int
-	Teacher        string
+	Name          string
+	ID            string
+	GradeCount    int
+	GradeAvg      float32
+	ClasssVisited int
+	ClasssOverall int
+	Teacher       string
+	Classs        []Class
+}
+
+type Class struct {
+	ID string
+}
+
+type Date struct {
+	Day   int
+	Month int
+	Year  int
 }
 
 func main() {
@@ -60,12 +72,9 @@ func main() {
 		courses = append(courses, getCoursesFromYearPage(&token, &year)...)
 	}
 
-	d := 0
-	for _, el := range courses {
-		d += parseCoursePage(&token, &el.Link)
-	}
-	fmt.Println(d)
+	getCourseClasses(&courses[1], &token)
 
+	fmt.Println(courses)
 }
 
 func getToken(username, userpassword string) string {
@@ -143,19 +152,19 @@ func parseCourseBlock(block *goquery.Selection) Course {
 	courseGradeCountText := courseGradeCountEx.Text()
 	courseGradeAvgEx := block.Find(".shp-average")
 	courseGradeAvgText := courseGradeAvgEx.Text()
-	courseLessonsEx := block.Find(".col-lg-4.col-xs-no-padding")
-	courseLessonsVisited := 0
-	courseLessonsOverall := 0
+	courseClasssEx := block.Find(".col-lg-4.col-xs-no-padding")
+	courseClasssVisited := 0
+	courseClasssOverall := 0
 	courseTeacherText := "-"
 
-	courseLessonsEx.Each(func(_ int, el *goquery.Selection) {
+	courseClasssEx.Each(func(_ int, el *goquery.Selection) {
 		courseSelectionText := el.Text()
 		if strings.Contains(courseSelectionText, "из") {
-			courseLessonsArr := strings.Split(courseSelectionText, "из")
-			courseLessonsArr[0] = strings.TrimSpace(courseLessonsArr[0])
-			courseLessonsArr[1] = strings.TrimSpace(courseLessonsArr[1])
-			courseLessonsVisited, _ = strconv.Atoi(courseLessonsArr[0])
-			courseLessonsOverall, _ = strconv.Atoi(courseLessonsArr[1])
+			courseClasssArr := strings.Split(courseSelectionText, "из")
+			courseClasssArr[0] = strings.TrimSpace(courseClasssArr[0])
+			courseClasssArr[1] = strings.TrimSpace(courseClasssArr[1])
+			courseClasssVisited, _ = strconv.Atoi(courseClasssArr[0])
+			courseClasssOverall, _ = strconv.Atoi(courseClasssArr[1])
 		}
 	})
 
@@ -170,7 +179,8 @@ func parseCourseBlock(block *goquery.Selection) Course {
 	course.Name = courseNameText
 
 	if linkExists {
-		course.Link = courseLinkText
+		idEx := strings.Split(courseLinkText, "/")
+		course.ID = idEx[len(idEx)-2]
 	} else {
 		log.Fatalln("Could not find link for", courseNameText)
 	}
@@ -188,32 +198,50 @@ func parseCourseBlock(block *goquery.Selection) Course {
 		courseGradeAvgFloat = 0.0
 	}
 	course.GradeAvg = (float32)(courseGradeAvgFloat)
-	course.LessonsVisited = courseLessonsVisited
-	course.LessonsOverall = courseLessonsOverall
+	course.ClasssVisited = courseClasssVisited
+	course.ClasssOverall = courseClasssOverall
 	course.Teacher = courseTeacherText
 
 	return course
 }
 
-func parseCoursePage(token *string, link *string) int {
+func getCourseClasses(course *Course, token *string) {
+	client := &http.Client{}
 
-	doc := loadPage(mshpURL+*link, token)
+	URL := mshpURL + mshpGetClassesAPIURL + "?classes__course__school_subject__id=" + course.ID + "&format=json&orderBy=datetime_begin&page=1&limit=999999999"
 
-	c := 0
-	doc.Find("ul .rounded").Each(func(_ int, el *goquery.Selection) {
-		c++
-	})
-
-	d := 0
-	for i := 1; i < c+1; i++ {
-
-		coursePartPage := loadPage(mshpURL+*link+"?part_selection="+strconv.Itoa(i), token)
-		coursePartPage.Find("tbody tr").Each(func(_ int, _ *goquery.Selection) {
-			d++
-		})
-		d--
+	req, err := http.NewRequest("GET", URL, nil)
+	if err != nil {
+		log.Fatalln(err)
 	}
-	return d
+
+	log.Print("Requesting course classes from api: ", URL, "\n")
+	req.Header.Set("Cookie", "eduapp_jwt="+*token)
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// 	Lessons := people{}
+	// 	jsonErr := json.Unmarshal(body, &Lessons)
+	// 	if jsonErr != nil {
+	// 		log.Fatal(jsonErr)
+	// 	}
+
+	// 	fmt.Println(people1.Number)
+	// }
+
+	var objmap map[string]*json.RawMessage
+	err = json.Unmarshal(body, &objmap)
+	//fmt.Println(*objmap["count"])
+
+	fmt.Println(string(body))
 }
 
 func loadPage(URL string, token *string) goquery.Document {

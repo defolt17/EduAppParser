@@ -10,6 +10,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/PuerkitoBio/goquery"
 	"github.com/joho/godotenv"
@@ -17,12 +18,111 @@ import (
 
 // Constants
 const (
-	mshpURL              = "https://my.informatics.ru"
-	mshpCoursesPageURL   = "/pupil/courses/"
-	mshpLoginPageURL     = "/accounts/root_login/"
-	mshpLoginAPIURL      = "/api/v1/rest-auth/login/"
-	mshpGetClassesAPIURL = "/api/v1/teaching_situation/classes_users/headings/"
+	mshpURL                = "https://my.informatics.ru"
+	mshpCoursesPageURL     = "/pupil/courses/"
+	mshpLoginPageURL       = "/accounts/root_login/"
+	mshpLoginAPIURL        = "/api/v1/rest-auth/login/"
+	mshpGetClassesAPIURL   = "/api/v1/teaching_situation/classes_users/headings/"
+	mshpGetClassInfoAPIURL = "api/v1/teaching_situation/classes/extended/"
 )
+
+type ClassRequest struct {
+	Count   int
+	Results []ClassFromRequest
+}
+
+type ClassFromRequest struct {
+	ID int
+}
+
+type ClassInfoFromRequest struct {
+	Count    int         `json:"count"`
+	Previous interface{} `json:"previous"`
+	Results  []struct {
+		TeacherID        int         `json:"teacher_id"`
+		TotalPupils      int         `json:"total_pupils"`
+		DatetimeBegin    time.Time   `json:"datetime_begin"`
+		ClassroomID      int         `json:"classroom_id"`
+		IsEvaluation     bool        `json:"is_evaluation"`
+		Duration         int         `json:"duration"`
+		DatetimeBeginMin interface{} `json:"datetime_begin_min"`
+		DateOf           string      `json:"date_of"`
+		ID               int         `json:"id"`
+		CuratorID        interface{} `json:"curator_id"`
+		Course           struct {
+			IsExam           bool        `json:"is_exam"`
+			SchoolSubjectID  int         `json:"school_subject_id"`
+			OriginalCourseID interface{} `json:"original_course_id"`
+			Name             string      `json:"name"`
+			SubjectLineID    int         `json:"subject_line_id"`
+			DateFrom         string      `json:"date_from"`
+			DateTill         string      `json:"date_till"`
+			SchoolID         int         `json:"school_id"`
+			FullName         string      `json:"full_name"`
+			Usage            string      `json:"usage"`
+			SimplestName     string      `json:"simplest_name"`
+			ID               int         `json:"id"`
+			SimpleName       string      `json:"simple_name"`
+		} `json:"course"`
+		DatetimeEnd    time.Time `json:"datetime_end"`
+		ClassesLessons []struct {
+			Lesson struct {
+				Priority int    `json:"priority"`
+				ID       int    `json:"id"`
+				Name     string `json:"name"`
+			} `json:"lesson"`
+			LessonID        int `json:"lesson_id"`
+			ID              int `json:"id"`
+			ClassesID       int `json:"classes_id"`
+			LessonVariantID int `json:"lesson_variant_id"`
+		} `json:"classes_lessons"`
+		OriginalClassesID  interface{} `json:"original_classes_id"`
+		PassesScore        int         `json:"passes_score"`
+		ConsultationReview interface{} `json:"consultation_review"`
+		ClassesTeachers    []struct {
+			TeacherID   int  `json:"teacher_id"`
+			IsOnClasses bool `json:"is_on_classes"`
+			ClassesID   int  `json:"classes_id"`
+			Teacher     struct {
+				Surname string `json:"surname"`
+				Name    string `json:"name"`
+				User    struct {
+					Username                    string      `json:"username"`
+					FirstName                   string      `json:"first_name"`
+					LastName                    string      `json:"last_name"`
+					Patronymic                  string      `json:"patronymic"`
+					PreferSchoolID              interface{} `json:"prefer_school_id"`
+					SubscribedToEmailDeliveries bool        `json:"subscribed_to_email_deliveries"`
+					Provider                    string      `json:"provider"`
+					SubscribedToPhoneDeliveries bool        `json:"subscribed_to_phone_deliveries"`
+					CreatedBy                   string      `json:"created_by"`
+					IsTeacher                   bool        `json:"is_teacher"`
+					GradeNum                    string      `json:"grade_num"`
+					SubscribedToDeliveries      bool        `json:"subscribed_to_deliveries"`
+					LoginLast                   time.Time   `json:"login_last"`
+					Avatar                      interface{} `json:"avatar"`
+					Email                       string      `json:"email"`
+					ContactNumber               interface{} `json:"contact_number"`
+					IsClient                    bool        `json:"is_client"`
+					ID                          int         `json:"id"`
+					IsRepresentative            bool        `json:"is_representative"`
+					IsPupil                     bool        `json:"is_pupil"`
+				} `json:"user"`
+				Patronymic string `json:"patronymic"`
+				IsPhantom  bool   `json:"is_phantom"`
+				ID         int    `json:"id"`
+			} `json:"teacher"`
+			Role      string `json:"role"`
+			ID        int    `json:"id"`
+			IsTeacher bool   `json:"is_teacher"`
+		} `json:"classes_teachers"`
+		ExpectedPupils int `json:"expected_pupils"`
+		TotalScore     int `json:"total_score"`
+		CourseID       int `json:"course_id"`
+		TimingID       int `json:"timing_id"`
+	} `json:"results"`
+	Next interface{} `json:"next"`
+}
 
 type Year struct {
 	Year string
@@ -72,7 +172,7 @@ func main() {
 		courses = append(courses, getCoursesFromYearPage(&token, &year)...)
 	}
 
-	getCourseClasses(&courses[1], &token)
+	// getCourseClasses(&courses[1], &token)
 
 	fmt.Println(courses)
 }
@@ -98,7 +198,6 @@ func getToken(username, userpassword string) string {
 	}
 
 	s := string(body)
-
 	var m map[string]string
 	if err := json.Unmarshal([]byte(s), &m); err != nil {
 		log.Fatal(err)
@@ -205,8 +304,9 @@ func parseCourseBlock(block *goquery.Selection) Course {
 	return course
 }
 
-func getCourseClasses(course *Course, token *string) {
+func getCourseClasses(course *Course, token *string) []Class {
 	client := &http.Client{}
+	Classes := make([]Class, 0)
 
 	URL := mshpURL + mshpGetClassesAPIURL + "?classes__course__school_subject__id=" + course.ID + "&format=json&orderBy=datetime_begin&page=1&limit=999999999"
 
@@ -228,20 +328,47 @@ func getCourseClasses(course *Course, token *string) {
 		log.Fatal(err)
 	}
 
-	// 	Lessons := people{}
-	// 	jsonErr := json.Unmarshal(body, &Lessons)
-	// 	if jsonErr != nil {
-	// 		log.Fatal(jsonErr)
-	// 	}
+	ClassRequestObj := ClassRequest{}
 
-	// 	fmt.Println(people1.Number)
-	// }
+	err = json.Unmarshal(body, &ClassRequestObj)
 
-	var objmap map[string]*json.RawMessage
-	err = json.Unmarshal(body, &objmap)
-	//fmt.Println(*objmap["count"])
+	for i := 0; i < ClassRequestObj.Count; i++ {
+		IDStr := strconv.Itoa(ClassRequestObj.Results[i].ID)
+		getClassInfo(&IDStr, token)
+	}
 
-	fmt.Println(string(body))
+	return Classes
+}
+
+func getClassInfo(ID *string, token *string) {
+	client := &http.Client{}
+	//Classes := make([]Class, 0)
+
+	URL := mshpURL + mshpGetClassInfoAPIURL + "?id=" + *ID + "&page=1&limit=999999&format=json&"
+
+	req, err := http.NewRequest("GET", URL, nil)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	log.Print("Requesting course info from api: ", URL, "\n")
+	req.Header.Set("Cookie", "eduapp_jwt="+*token)
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatalln(err)
+	}
+	defer resp.Body.Close()
+
+	body, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	ClassInfoRequestObj := ClassInfoFromRequest{}
+
+	err = json.Unmarshal(body, &ClassInfoRequestObj)
+
+	fmt.Println(ClassInfoRequestObj)
 }
 
 func loadPage(URL string, token *string) goquery.Document {
